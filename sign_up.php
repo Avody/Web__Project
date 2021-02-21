@@ -13,7 +13,7 @@
 	<title>HTTP ANALYSIS</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/sign_up.css "/>
+	<link rel="stylesheet" type="text/css" href="css/signup.css "/>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
@@ -69,7 +69,7 @@
 								echo "<p class = 'error_message'>Choose a proper email !</p>";
 							}
 							else if($_GET["error"] == "invalidPwd"){
-								echo "<div class = 'error_message'><p>Your password must have<p><ul><li> at least 8 characters</li><li> 1 special character</li><li> 1 number</li><li> 1 capital letter</li><ul></p></p></div>";
+								echo "<div class = 'error_message'><p><u>Your password must have:</u> <p><ul><li> at least 8 characters</li><li> 1 special character</li><li> 1 number</li><li> 1 capital letter</li><ul></p></p></div>";
 							}
 							else if($_GET["error"] == "usernametaken"){
 								echo "<p class = 'error_message'>Username already exists !</p>";

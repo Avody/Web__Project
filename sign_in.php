@@ -9,8 +9,8 @@
 
 	<title>HTTP ANALYSIS</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/sign_up.css "/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/signup.css "/>
 	<link rel="stylesheet" type="text/css" href="css/sign_in.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
@@ -56,9 +56,7 @@
 					   ?>
 
 					 <div class="down">
-					 <div class = "check">
-					 <input class = "check" type="checkbox" name=""> Remember me 
-					 </div>
+					 
 					 <div>
 					  <button class="submit" name="submit" type="submit" >Sign in</button>
 					</div>

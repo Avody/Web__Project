@@ -10,12 +10,12 @@ if(isset($_POST['submit'])){
 	require_once('functions.inc.php');
 
 	if (emptyInputSignin($uname,$pwd) !== false){
-		header("location: ../sign_in.php?error:emptyinput");
+		header("location: ../sign_in.php?error=emptyinput");
 		exit();
 	}
 
 	if (signinUser($conn,$uname,$pwd) !== false){
-		header("location: ../sign_in.php?error:accountNotExists");
+		header("location: ../sign_in.php?error=accountNotExists");
 		exit();
 	}
 

@@ -146,7 +146,7 @@ function signinUser($conn,$uname,$pwd){
 		session_start();
 		$_SESSION["userid"] = $unameExists["usersId"];
 		$_SESSION["useruid"] = $unameExists["usersUsername"];
-		header("location: ../home_page.php");
+		header("location: ../home.php");
 		exit();
 	}
 	
