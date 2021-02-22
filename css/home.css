@@ -27,21 +27,63 @@ body{
 
 }
 
-
-
 .btn-nav{
-	width:60px;
-	height: 100%;
-	background-color:#f48564;
-	background-image: url("../img/ham-img.svg");
-	background-size: 60%;
-	background-repeat: no-repeat;
-	background-position: center;
+	display: flex;
+	width: 60px;
+	height: auto;
+	background-color: #1B1B1B;
+	border-bottom: 0.5px solid #fff;
+	align-items:  center;
+	justify-content: center;
 	cursor: pointer;
+
+
 }
-.btn-nav:hover{
-	opacity: 0.5;
+.btn_move{
+	width: 40px;
+	height: 4px;
+	background:lightblue;
+	border-radius: 5px;
+	transition: all 0.3s ease-in-out;
+
 }
+/* Button navbar */
+.btn_move::before,
+.btn_move::after{
+	content: "";
+	height: 4px;
+	position: absolute;
+	width:40px;
+	background-color:lightblue;
+	border-radius: 5px;
+	transition: all 0.3s ease-in-out;
+
+}
+
+.btn_move::before{
+	transform: translateY(-10px); 
+}
+.btn_move::after{
+	transform: translateY(10px); 
+}
+/* ANIMATION*/
+
+.btn-nav.open .btn_move {
+	transform: translateX(-22px);
+	background: transparent;
+
+
+}
+.btn-nav.open .btn_move::before {
+	
+	transform: rotate(45deg) translate(15px, -15px);
+	
+}
+.btn-nav.open .btn_move::after {
+	transform: rotate(-45deg) translate(15px, 15px);
+	
+}
+
 
 .nav-main ul{
 	display: flex;

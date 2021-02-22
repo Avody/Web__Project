@@ -13,7 +13,9 @@
 <body>
 	<nav class='nav-main'>
 
-		<div class="btn-nav" onclick="toggleNav()"></div>
+		<div class="btn-nav" onclick="toggleNav()">
+			<div class="btn_move"></div>
+		</div>
 		<div class="logo">IP FINDER</div>
 		<div class="signin"  >
 			<?php 

@@ -49,3 +49,20 @@ function mouseOut(){
 	document.getElementById("profile2").style.visibility = "hidden";
 }
 
+
+
+let moved = false;
+const menuBtn = document.querySelector('.btn-nav');
+
+menuBtn.addEventListener('click',()=>{
+	if(!moved){
+		menuBtn.classList.add('open');
+		moved = true;
+	}else{
+		menuBtn.classList.remove('open');
+		moved = false;
+	}
+});
+
+
+
