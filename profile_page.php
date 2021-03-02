@@ -1,14 +1,20 @@
-<?php session_start(); ?>
+<?php session_start();
+
+	
+ ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Profile Page</title>
+	<link rel="stylesheet" type="text/css" href="css/profile.css">
 	<link rel="stylesheet" type="text/css" href="css/home.css">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+	
 </head>
 <body>
 	<nav class='nav-main'>
@@ -30,7 +36,7 @@
 				echo "  <div class='profile2' id='profile2' onmouseover='mouseOver()' onmouseout='mouseOut()'>
 					 		<ul>
 					 			<li class='grammh_profil'><a = href='includes/profile_page.inc.php'> Profile </a></li>
-					 			<li> <a = href='includes/sign_out.inc.php'> Log off </a></li>
+					 			<li><a = href='includes/sign_out.inc.php'> Log off </a></li>
 					 		</ul>	
 					 	</div>";
 				
@@ -54,17 +60,25 @@
 			<li><a href="">Contact</a></li>
 		</ul>
 	</aside>
-	<div class="all">
+	
+<?php
+	
+		
+	if(isset($_SESSION['useruid'])){
 
-		<div class="upper" > 
-				<h1>EDW EIMASTE</h1>
+		include("profPage_in_prof_page.php");
 
-		</div>
+	}else{
+		echo "Log in first";
+	}	
+		
 
-
-	</div>
-
+	
+	
+?>
 	<script type="text/javascript" src="js/home.js"></script>
+	<script type="text/javascript" src="js/chart.js"></script>
 
 </body>
 </html>
+

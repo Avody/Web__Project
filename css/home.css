@@ -30,7 +30,7 @@ body{
 .btn-nav{
 	display: flex;
 	width: 60px;
-	height: auto;
+	height: 59px;
 	background-color: #1B1B1B;
 	border-bottom: 0.5px solid #fff;
 	align-items:  center;
@@ -220,16 +220,13 @@ body{
 }
 
 /* ------MAIN BODY-------*/
+
+
 .all{
-	
-	
+
 	padding-top:60px;
 	padding-left:60px;
 	height: 100%;
+	
 }
 
-.upper{
-	height: 100px;
-	text-align: center;
-
-}

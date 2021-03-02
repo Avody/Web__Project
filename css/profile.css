@@ -1,0 +1,150 @@
+html,body{
+	height:100%;
+	
+	
+}
+
+
+
+.container{
+	height:100%;
+	padding-top: 60px;
+	padding-left:60px;
+	display:grid;
+	grid-template-columns: repeat(12,1fr);
+	grid-template-rows: 300px auto auto 30px;
+	grid-template-areas:
+	"h h h h h h h h h h h h"
+	". m m m m m m m m m m ."
+	". s s s s s s s s s s ."
+	"f f f f f f f f f f f f" ;
+	
+}
+
+
+.image{
+	border-top: 1px solid black;
+	grid-area: h;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: lightgreen;
+
+}
+
+ img{
+ 	width:180px;
+ 	height:180px;
+ 	border:2px solid black;
+ 	border-radius: 50%;
+ 	box-shadow: 10px 5px 10px  black;
+	
+}
+
+.top{
+	grid-area: m;
+	display: flex;
+
+}
+.top > div{
+	flex:1;
+}
+.data_class{
+	display: flex;
+	align-self: center;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.edit_btn{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin:0 30px;
+	padding:2px 7px;
+	border:0.5px solid black;
+	border-radius: 10px;
+	
+	
+
+}
+.edit_btn:hover{
+	background-color: lightgrey;
+	cursor:pointer;
+}
+.edit_btn a{
+	text-decoration:none;
+	color:black;
+}
+.data > ul > li{
+	list-style-type: none;
+}
+
+.talk_class{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.mid{
+	margin:10px 0 ;
+	grid-area:s;
+	
+	display: grid;
+	grid-template-columns: repeat(12,1fr);
+	grid-template-rows: repeat(6,1fr);
+	grid-template-areas:
+	 "c c c c c c c c c c c c"
+	 "c c c c c c c c c c c c"
+	 "c c c c c c c c c c c c"
+	 "c c c c c c c c c c c c"
+	 "c c c c c c c c c c c c"
+	 "c c c c c c c c c c c c";
+	
+
+}
+.buttons_for_chart{
+	grid-area: b;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.buttons select{
+	content: "";
+	width:100px;
+}
+
+.chart{
+	border-top: 5px solid black;
+	grid-area: c;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding:10px 0;
+
+
+}
+.myChart_class{
+	height: auto;
+	width:70vw;
+}
+.myChart{
+	height:auto;
+	width:auto;
+}
+
+
+.bottom{
+	grid-area: f;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	background-color: lightgrey;
+
+}
+
+
+
+
