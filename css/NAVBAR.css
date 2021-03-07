@@ -5,34 +5,37 @@
 	
 }
 body{
-	background-color: #F1F1F1;
-	font-family:'Righteous';
-	
+	background-image: linear-gradient(50deg,#FFFFFF,#F1F1F1,#707070);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
-
-
-
 .nav-main{
+	
 	width:100%;
-	height: 60px;
-	background-color: #FFF;
+	height: 50px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	z-index: 1000;
 	position: fixed;
 	top:0;
+	transition: all 0.3s ease-in-out;
 
 
 }
+.black{
+	background-color: rgba(1,1,1,0.8);
+	color:white;
+}
+
 
 .btn-nav{
+	margin-left: 2px;
 	display: flex;
-	width: 60px;
-	height: 59px;
-	background-color: #1B1B1B;
-	border-bottom: 0.5px solid #fff;
+	width: 50px;
+	height: 49px;
+	
 	align-items:  center;
 	justify-content: center;
 	cursor: pointer;
@@ -42,9 +45,10 @@ body{
 .btn_move{
 	width: 40px;
 	height: 4px;
-	background:lightblue;
+	background:black;
 	border-radius: 5px;
 	transition: all 0.3s ease-in-out;
+	border:1px solid white;
 
 }
 /* Button navbar */
@@ -54,8 +58,9 @@ body{
 	height: 4px;
 	position: absolute;
 	width:40px;
-	background-color:lightblue;
+	background-color:black;
 	border-radius: 5px;
+	border:1px solid white;
 	transition: all 0.3s ease-in-out;
 
 }
@@ -65,12 +70,14 @@ body{
 }
 .btn_move::after{
 	transform: translateY(10px); 
+
 }
 /* ANIMATION*/
 
 .btn-nav.open .btn_move {
 	transform: translateX(-22px);
 	background: transparent;
+	border:none;
 
 
 }
@@ -94,7 +101,7 @@ body{
 
 .nav-main ul li{
 	list-style: none;
-	line-height: 60px;
+	line-height: 50px;
 
 
 }
@@ -113,87 +120,41 @@ body{
 	background-color: lightgrey;
 }
 
-
-.sidebar{
-	position: fixed;
-	left:0;
-	bottom:0;
-	padding:0 5px;
-	width: 50px;
-	height: calc( 100vh - 60px);
-	background-color: #1B1B1B;
-	z-index: 1000;
-	transition:width 0.3s ease-in;
-
-}
-.sidebar ul{
-	padding-top: 15px;
-	list-style: none;
-	overflow: hidden;
-	visibility: hidden;
-
-}
-
-.sidebar ul li {
-	line-height: 60px;
-
-
-}
-.sidebar ul li span, .sidebar ul li a{
-	display: block;
-	height: 60px;
-	padding:0 10px;
-	text-decoration: none;
-	text-transform: uppercase;
-	color:#FFF;
-	font-size: 16px;
-	white-space: nowrap;
-	opacity:0;
-	transition: all 0.3s ease-in-out;
-	
-
-
-}
-.sidebar ul li span{
-	text-align: center;
-}
-
-.sidebar ul li a:hover{
-
-	background-color: #222;
-
-}
-
-
-
 .logo{
-	line-height: 60px;
+	line-height: 50px;
 	height: 100%;
+	transition: 0.3s;
+}
+.logo:hover{
+	cursor: pointer;
+}
+.date_or_navbar{
+	line-height: 50px;
+	padding-left:10px;
+	transition:0.3s;
 }
 
 .signin{
 
-	line-height: 60px;
+	line-height: 50px;
 	font-size: 14px;
 	text-align: center;
 
 	
 }
-.sign_in_out {
-	height:60px;
-	
-}
+
 
 
 .profile{
 	width:140px;
-	border-left:1px solid lightgrey;
+	transition: 0.3s
 	
 }
 
 .profile a{
 	text-decoration: none;
 	color:#111;
+
 }
 .sign_in_out{
 	display: block;
@@ -219,14 +180,7 @@ body{
 	border-bottom: 0.5px solid lightgrey;
 }
 
-/* ------MAIN BODY-------*/
-
-
-.all{
-
-	padding-top:60px;
-	padding-left:60px;
-	height: 100%;
-	
+.profile2 li a{
+	line-height: 50px;
 }
 

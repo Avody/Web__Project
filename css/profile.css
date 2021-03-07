@@ -8,8 +8,8 @@ html,body{
 
 .container{
 	height:100%;
-	padding-top: 60px;
-	padding-left:60px;
+	padding-top: 50px;
+	padding-left: 0px;
 	display:grid;
 	grid-template-columns: repeat(12,1fr);
 	grid-template-rows: 300px auto auto 30px;
@@ -28,7 +28,7 @@ html,body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: lightgreen;
+	
 
 }
 
@@ -105,11 +105,20 @@ html,body{
 	
 
 }
+.no_signed_up_message{
+	
+	
+	background-color:white;
+	text-align: center;
+	margin-top: 50vh;
+
+}
 .buttons_for_chart{
 	grid-area: b;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
 }
 .buttons select{
 	content: "";
@@ -141,7 +150,7 @@ html,body{
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-end;
-	background-color: lightgrey;
+	
 
 }
 

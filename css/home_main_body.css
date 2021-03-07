@@ -1,0 +1,113 @@
+
+.all{
+	
+	padding-top:50px;
+	
+	height: 100%;
+	
+	display: grid;
+	grid-template-columns:repeat(12,1fr);
+	grid-template-rows:300px auto  20px;
+	grid-template-areas: 
+	" u u u u u u u u u u u u "
+	" m m m m m m m m m m m m "	
+	" f f f f f f f f f f f f ";
+}
+
+.upper{
+	grid-area: u;
+	
+	
+	
+	}
+ 
+.txt{
+	height:100%;
+	margin:10px;
+	font-size: 14px;
+	display: flex;
+	
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.txt > h2 {
+	margin-bottom: 20px;
+}
+
+.mid{
+	padding: 20px 0;
+	grid-area: m;	
+	display: grid;
+	grid-gap:  10px;
+	grid-template-columns:repeat(12,1fr);
+	grid-template-rows: 200px 300px; 
+	grid-template-areas: 
+	" . . l l l l l l l l . . "
+	" . b b b b b e e e e e ."
+}
+.mid > div{
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.mid_1{
+	
+	flex:1;
+	text-align: center;
+	background-image: url("../img/heatmap.png");
+	background-repeat: no-repeat;
+	background-size:cover;
+	grid-area: l;
+
+}
+
+.mid_2{
+	flex-direction: column;
+	grid-area:b;
+	
+}
+.mid_2 > .button_left{
+	border:1px solid black;
+	padding:4px;
+	margin-top:10px;
+}
+.mid_2 > .button_left:hover{
+	background-color: black;
+	color:white;
+	border-color:grey;
+	cursor: pointer;
+}
+
+
+.mid_3{
+	grid-area:e;
+	flex-direction: column;
+	
+}
+
+.mid_3 > .button_right{
+	border:1px solid black;
+	padding:4px;
+	margin-top:10px;
+}
+.mid_3 > .button_right:hover{
+	background-color: black;
+	color:white;
+	border-color:grey;
+	cursor: pointer;
+	;
+}
+
+
+
+.footer{
+	grid-area: f;
+	padding:0 10px 4px 0;
+	display: flex;
+	justify-content: flex-end;
+	align-items:flex-end;
+}
