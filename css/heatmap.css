@@ -1,0 +1,44 @@
+body,html{
+	height: 100%
+}
+
+.main{
+	
+	height:100%;
+	margin-top:50px;
+	display: grid;
+	grid-template-columns: repeat(12,1fr);
+	grid-template-rows: 400px auto 20px;
+	grid-template-areas: 
+	". . t t t t t t t t . ."
+	"m m m m m m m m m m m m"
+	"f f f f f f f f f f f f";
+}
+.top{
+	grid-area: t;
+	width: 100%;
+	
+
+	
+	}
+.mid{
+	
+	width: 100%;
+	grid-area:m;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.footer{
+	grid-area:f;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	padding:0 6px 2px 0;
+}
+#mapid { 
+	
+	height: 100%;
+	z-index: 500;
+
+}

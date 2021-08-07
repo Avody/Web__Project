@@ -19,7 +19,7 @@
 					<li><u>Email:</u><br/><?php echo $_SESSION['email']; ?> </li>
 					<li><u>Password:</u><br/>********</li>
 				</ul>		
-				<div class="edit_btn"> <a href="#"> Edit </a> </div>
+				<div class="edit_btn"> <a href=edit_page.php> Edit </a> </div>
 			</div>
 		</div>
 
