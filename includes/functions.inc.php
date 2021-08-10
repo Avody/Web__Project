@@ -156,3 +156,86 @@ function signinUser($conn,$uname,$pwd){
 
 
 }
+/****** Edit page Adds******/
+
+function usernameExistsEdit($conn, $uname){
+
+	$sql = "SELECT * FROM users WHERE usersUsername = ? ;" ;
+	$stmt = mysqli_stmt_init($conn);
+
+	if( !mysqli_stmt_prepare($stmt,$sql)){
+		header("location:../edit_page.html?error=stmtfailed");
+		exit();
+
+	}
+	mysqli_stmt_bind_param($stmt,"s",$uname );
+
+	mysqli_stmt_execute($stmt);
+
+	$resultData = mysqli_stmt_get_result($stmt);
+
+	if ($row = mysqli_fetch_assoc($resultData)) {
+		return $row;
+	}
+	else{
+		$result = false;
+		return $result;
+	}
+
+	myqsli_stmt_close($stmt);
+}
+
+function wrong_pwd_check($conn,$pwd,$id){
+	
+	$sql = "SELECT * FROM users WHERE usersId = ? ";
+	$stmt = mysqli_stmt_init($conn);
+
+	if( !mysqli_stmt_prepare($stmt,$sql)){
+		header("location:../edit_page.php?error=stmtfailed");
+		exit();
+
+	}
+	mysqli_stmt_bind_param($stmt,"s", $id);
+	mysqli_stmt_execute($stmt);
+
+	$resultData = mysqli_stmt_get_result($stmt);
+	$row = mysqli_fetch_assoc($resultData);
+	$hashedPwd = $row["usersPwd"];
+
+	if ( password_verify($pwd, $hashedPwd) !== true ){
+
+		$result=false;		
+		return $result;
+		exit();
+	}
+
+}
+
+function update_username($conn,$uname,$id){
+
+	
+	$sql = " UPDATE users SET usersUsername = ? WHERE usersId = ? ;" ;
+
+	$stmt = mysqli_stmt_init($conn);
+
+	if( !mysqli_stmt_prepare($stmt,$sql)){
+		header("location:../edit_page.php?error=stmtfailed");
+		exit();
+
+	}
+
+	
+	mysqli_stmt_bind_param($stmt,"ss",$uname,$id);
+
+	mysqli_stmt_execute($stmt);
+	$_SESSION["useruid"] = $uname;
+	mysqli_stmt_close($stmt);
+
+	
+
+	
+	
+	
+
+
+}
