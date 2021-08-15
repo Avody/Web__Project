@@ -50,10 +50,10 @@
 				<div class="username_change">
 					<div id="close" class="close">+</div>
 					<form method="post" action="includes/edit_page_username.inc.php">
-						<label>New username</label>
+						<label><p style="font-size:25px;"><b>New Username</b></p></label>
 
-						<input type="text" placeholder="New username" name="Username">
-						<input type="password" placeholder="Password" name="password">
+						<input type="text" placeholder=" New username" name="Username">
+						<input type="password" placeholder=" Password" name="password">
 
 						<button class="submit" name="submit" type="submit" >Save Changes</button>
 					</form>
@@ -67,10 +67,11 @@
 				<div class="name_change">
 					<div id="close2" class="close2">+</div>
 					<form method="post" action="includes/edit_page_name.inc.php">
-						<label>New name</label>
-						<input type="text" placeholder="Username" name="Name">
-						<input type="text" placeholder="Password" name="password">
-						<a href="" class="button"> Save Changes</a>
+						<label><p style="font-size:25px;"><b>New Name</b></p></label>
+						<input type="text" placeholder=" Surname" name="Surname" required>
+						<input type="text" placeholder=" Name" name="name" required>
+						<input type="password" placeholder=" Password" name="password" required>
+						<button class="submit" name="submit" type="submit" >Save Changes</button>
 					</form>
 
 				</div>
@@ -80,11 +81,11 @@
 				
 				<div class="email_change">
 					<div id="close3" class="close3">+</div>
-					<form>
-						<label>New e-mail</label>
-						<input type="text" placeholder="Username" name="">
-						<input type="text" placeholder="Password" name="">
-						<a href="" class="button"> Save Changes</a>
+					<form method="post" action="includes/edit_page_email.inc.php">
+						<label><p style="font-size:25px;"><b>New Email</b></p></label>
+						<input   type="text" placeholder=" Email" name="email" required>
+						<input type="password" placeholder=" Password" name="password" required>
+						<button class="submit" name="submit" type="submit" >Save Changes</button>
 					</form>
 
 				</div>
@@ -93,12 +94,19 @@
 			<div class="form4">
 				
 				<div class="password_change">
+
 					<div id="close4" class="close4">+</div>
-					<form>
-						<label>New Password</label>
-						<input type="text" placeholder="Username" name="">
-						<input type="text" placeholder="Password" name="">
-						<a href="" class="button"> Save Changes</a>
+
+					<form method="post" action="includes/edit_page_password.inc.php">
+
+						<label><p style="font-size:25px;"><b>New Password</b></p></label>
+
+						<input type="password" placeholder=" New Password" name="new_password" required>
+
+						<input type="password" placeholder=" Old Password" name="old_password" required>
+
+						<button class="submit" name="submit" type="submit" >Save Changes</button>
+
 					</form>
 
 				</div>

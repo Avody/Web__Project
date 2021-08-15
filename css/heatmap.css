@@ -8,7 +8,7 @@ body,html{
 	margin-top:50px;
 	display: grid;
 	grid-template-columns: repeat(12,1fr);
-	grid-template-rows: 400px auto 20px;
+	grid-template-rows: 500px auto 20px;
 	grid-template-areas: 
 	". . t t t t t t t t . ."
 	"m m m m m m m m m m m m"
@@ -28,7 +28,70 @@ body,html{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	
 }
+.store{
+	
+	flex-grow: 1;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.upload{
+	
+	flex-grow: 1;
+	width: 100%;
+	height: 100%;
+	/*display: flex;*/
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	border-left: 1px solid black;
+	position: relative;
+}
+.upload_form{
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.up{
+	margin:10px;
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+}
+.upload_down{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.upload_down > input{
+	margin: 15px;
+}
+
+.upload_submit_left{
+	padding: 8px;
+
+}
+.upload_submit_left{
+	border: 0.5px solid black;
+	border-radius: 14px;
+	box-shadow: 3px 3px rgba(0,0,0,0.7) ;
+}
+
+.upload_submit_left:hover{
+	background-color: lightgrey;
+	padding: 9px;
+	cursor: pointer;
+}
+
+
 .footer{
 	grid-area:f;
 	display: flex;
@@ -40,5 +103,6 @@ body,html{
 	
 	height: 100%;
 	z-index: 500;
-
 }
+
+

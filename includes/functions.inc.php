@@ -233,9 +233,90 @@ function update_username($conn,$uname,$id){
 
 	
 
+}
+
+function emptyInputNameSurname($surname,$name,$pwd){
+
+	$result;
+
+	if(empty($surname) || empty($name) || empty($pwd) ){
+		$result = true;
+
+	}
+
+	else{
+		$result= false;
+	}
+	return $result;
 	
+}
+
+function update_name($conn,$surname,$name,$id){
+
+	$fullname = $surname." ".$name;
+
+	$sql = " UPDATE users SET usersFullname = ? WHERE usersId = ? ;" ;
+
+	$stmt = mysqli_stmt_init($conn);
+
+	if( !mysqli_stmt_prepare($stmt,$sql)){
+		header("location:../edit_page.php?error=stmtfailed");
+		exit();
+
+	}
+
 	
+	mysqli_stmt_bind_param($stmt,"ss",$fullname,$id);
+
+	mysqli_stmt_execute($stmt);
+	$_SESSION["fullname"] = $fullname;
+	mysqli_stmt_close($stmt);
+
 	
 
+}
 
+function update_email($conn,$email,$id){
+
+
+	$sql = " UPDATE users SET usersEmail = ? WHERE usersId = ? ;" ;
+
+	$stmt = mysqli_stmt_init($conn);
+
+	if( !mysqli_stmt_prepare($stmt,$sql)){
+		header("location:../edit_page.php?error=stmtfailed");
+		exit();
+
+	}
+
+	
+	mysqli_stmt_bind_param($stmt,"ss",$email,$id);
+
+	mysqli_stmt_execute($stmt);
+	$_SESSION["email"] = $email;
+	mysqli_stmt_close($stmt);
+
+	
+
+}
+
+function update_password($conn,$pwd,$id){
+	$sql = " UPDATE users SET usersPwd = ? WHERE usersId = ? ;" ;
+
+	$stmt = mysqli_stmt_init($conn);
+
+	if( !mysqli_stmt_prepare($stmt,$sql)){
+		header("location:../edit_page.php?error=stmtfailed");
+		exit();
+
+	}
+
+	$hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
+	
+	mysqli_stmt_bind_param($stmt,"ss",$hashedPwd,$id);
+
+	mysqli_stmt_execute($stmt);
+	
+	mysqli_stmt_close($stmt);
+	
 }
