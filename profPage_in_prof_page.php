@@ -34,7 +34,7 @@
 
 	<div class="mid">
 
-		<div class="chart">
+		<div class="user_data">
 			<div class="myChart_class">
 			<canvas id="myChart" class="myChart">
 				

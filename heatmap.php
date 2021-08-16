@@ -27,7 +27,7 @@
 
 		<div class="top">
 			<div id="mapid"></div>
-			
+
 		</div>
 
 		<div class="mid">
@@ -46,6 +46,7 @@
 					<div class = "upload_down">
 						<input type="file" name="file"  >
 						<input type="submit" name="submit" class="upload_submit_left" value="Upload new file">
+							
 						
 						
 					</div>
@@ -70,10 +71,11 @@
 		<div class="footer">Copyright &copy 2021 Odysseas Avramopoulos
 		</div>
 
-	</div>
+	</div>	
 
 	<script type="text/javascript" src="js/heatmap.js"></script>
-	<script type="text/javascript" src="js/ip_find.js"></script>
+
+	
 	
 </body>
 </html>

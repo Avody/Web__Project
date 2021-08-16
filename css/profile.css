@@ -12,7 +12,7 @@ html,body{
 	padding-left: 0px;
 	display:grid;
 	grid-template-columns: repeat(12,1fr);
-	grid-template-rows: 300px auto auto 30px;
+	grid-template-rows: 300px auto 400px 30px;
 	grid-template-areas:
 	"h h h h h h h h h h h h"
 	". m m m m m m m m m m ."
@@ -45,6 +45,7 @@ html,body{
 	grid-area: m;
 	display: flex;
 
+
 }
 .top > div{
 	flex:1;
@@ -54,6 +55,7 @@ html,body{
 	align-self: center;
 	justify-content: center;
 	align-items: center;
+
 	
 }
 
@@ -104,50 +106,47 @@ html,body{
 	 "c c c c c c c c c c c c"
 	 "c c c c c c c c c c c c"
 	 "c c c c c c c c c c c c";
+
 	
 
 }
-.no_signed_up_message{
-	
-	
-	background-color:white;
-	text-align: center;
-	margin-top: 50vh;
 
-}
-.buttons_for_chart{
-	grid-area: b;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 
-}
-.buttons select{
-	content: "";
-	width:100px;
-}
 
-.chart{
+
+.user_data{
 	border-top: 5px solid black;
 	grid-area: c;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-start;
+	align-items: flex-start;
 	padding:10px 0;
+	
 
 
 }
-.myChart_class{
-	height: auto;
-	width:70vw;
+table {
+  width: 100%;
 }
-.myChart{
-	height:auto;
-	width:auto;
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
 }
+th, td {
+  padding: 15px;
+  text-align: left;
+  
+}
+th{
+	background-color: black;
+	color: white;
+}
+
 
 
 .bottom{
+	
+
 	grid-area: f;
 	display: flex;
 	justify-content: flex-end;

@@ -12,7 +12,21 @@ $id = $_SESSION['userid'];
 
 
 if(isset($_POST['submit'])) {
-	
+	/*** Isp track ***/
+
+	$response = file_get_contents('https://api.ipdata.co/?api-key=e0565ee9be214f97f5e12d53de0b908676676b9d8e275f8a71b23f92');
+
+  	$x = json_decode($response,true);
+  	$isp = $x['asn']['name'];
+
+	$query_to_database = "UPDATE users
+						  SET ISP = \"".$isp."\"
+						  WHERE usersId = $id";
+
+
+	mysqli_query($conn,$query_to_database);
+		
+		
 
 /*** Upload the data ***/
 	$file = $_FILES['file'];
