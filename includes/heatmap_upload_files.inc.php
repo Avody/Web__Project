@@ -25,6 +25,7 @@ if(isset($_POST['submit'])) {
 
 
 	mysqli_query($conn,$query_to_database);
+	
 		
 		
 
@@ -32,7 +33,7 @@ if(isset($_POST['submit'])) {
 	$file = $_FILES['file'];
 	$fileName = $file['name'];
 	$fileTmpName = $file['tmp_name'];
-	print_r($file);
+	
 	$target_dir = "../har_files/";
 
 	$destination = $target_dir . $fileName;
@@ -42,18 +43,23 @@ if(isset($_POST['submit'])) {
 	$type = explode('.', $fileName );
 	$typeImported = end($type);
 
+	if(empty($fileTmpName)){
+		header("location:../heatmap.php?error=noSelectedFile");
+		exit();
+	}
+
 	if( $typeImported !== "har"){
 		header("location:../heatmap.php?error=wrongFileType");
-		$check = 0;
+		exit();
 	}
 
 	if (file_exists($destination)) {
   		header("location:../heatmap.php?error=fileExists");
-  		$check = 0;
+  		exit();
 	}
 
 
-	if($check !== 0 ){
+	
 
 
 	move_uploaded_file($fileTmpName, $destination);
@@ -73,10 +79,21 @@ if(isset($_POST['submit'])) {
 		$method =$json['log']['entries'][$i]['request']['method'];
 		$status =$json['log']['entries'][$i]['response']['status'];
 		$ipAddress=$json['log']['entries'][$i]['serverIPAddress'];
+
+		/********** Find the coordinates of the ipAddress ***********/
+		
+
+		$coordinates = file_get_contents("https://api.ipdata.co/".$ipAddress."?api-key=e0565ee9be214f97f5e12d53de0b908676676b9d8e275f8a71b23f92");
+		$coordinates = json_decode($coordinates,true);
+		$lat = $coordinates['latitude'];
+		$lng = $coordinates['longitude'];
+		
+
 		
 		
+		$sql = "INSERT INTO uploaded_files(usersId,ipAddress,method,status,lat,lng) VALUES ( $id,\"".$ipAddress."\",\"".$method."\",\"".$status."\",\"".$lat."\",\"".$lng."\");";
 		
-		$sql = "INSERT INTO uploaded_files(usersId,ipAddress,method,status) VALUES ( $id,\"".$ipAddress."\",\"".$method."\",\"".$status."\")";
+		
 		
 		if(mysqli_query($conn,$sql)){
 			header("location:../heatmap.php?error=none");
@@ -85,12 +102,18 @@ if(isset($_POST['submit'])) {
 			
 		}
 		
-	
+		
 		
 		}
-	}else{
-		echo("<br> Try again!");
-	}
+		$last_upload = date('Y-m-d');
+		$sql_date = "UPDATE users SET  last_upload = \"".$last_upload."\" WHERE usersId = $id";
+		mysqli_query($conn,$sql_date);
+
+		
+
+
+
+	
 }else{
 	echo"something bad is happenning bro";
 }

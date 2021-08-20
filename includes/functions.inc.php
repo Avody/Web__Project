@@ -85,9 +85,9 @@ function unameExists($conn, $uname, $email){
 	myqsli_stmt_close($stmt);
 }
 
-function createUser($conn,$uname,$fname,$email,$pwd){
+function createUser($conn,$fname,$uname,$email,$pwd){
 
-	$sql = " INSERT INTO users (usersFullname,usersUsername,usersEmail,usersPwd) VALUES (?,?,?,?); " ;
+	$sql = " INSERT INTO users(usersFullname,usersUsername,usersEmail,usersPwd,ISP,last_upload) VALUES (?,?,?,?,'Not provided yet',NULL); " ;
 	$stmt = mysqli_stmt_init($conn);
 
 	if( !mysqli_stmt_prepare($stmt,$sql)){
@@ -97,12 +97,16 @@ function createUser($conn,$uname,$fname,$email,$pwd){
 	}
 
 	$hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-	mysqli_stmt_bind_param($stmt,"ssss",$fname,$uname, $email, $hashedPwd);
+	mysqli_stmt_bind_param($stmt,"ssss",$fname,$uname,$email, $hashedPwd);
 
-	mysqli_stmt_execute($stmt);
+	mysqli_stmt_execute($stmt) ;	
+	
+
 	mysqli_stmt_close($stmt);
 
-	header("location:../sign_in.php?error=none");
+	header("location:../sign_in.php");
+
+	
 
 }
 

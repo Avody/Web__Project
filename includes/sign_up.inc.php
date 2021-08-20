@@ -36,12 +36,12 @@ if (isset($_POST["submit"])) {
 		exit();
 	}
 
-	createUser($conn,$uname,$fname,$email,$pwd);
+	createUser($conn,$fname,$uname,$email,$pwd);
 
 
 }
 
 else{
-	header("location:../sign_in.php?error=none");
+	header("location:../sign_in.php?error=sign_up");
 
 }

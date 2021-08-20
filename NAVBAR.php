@@ -43,9 +43,9 @@
 		<div class="date_or_navbar">
 
 		<?php 
-		if( !isset($_SESSION['useruid']) || $_SESSION['useruid'] !="Odysseas" ){
+		if( !isset($_SESSION['useruid']) || $_SESSION['useruid'] !="Admin" ){
 			echo date("F j, Y");
-		}elseif($_SESSION['useruid'] =="Odysseas" ){
+		}elseif($_SESSION['useruid'] =="Admin" ){
 			echo "
 		<div class='btn-nav' onclick='toggleNav()'>
 			<div class='btn_move'> </div>
@@ -65,7 +65,7 @@
 
 				echo "  <div class='profile2' id='profile2' onmouseover='mouseOver()' onmouseout='mouseOut()'>
 					 		<ul>
-					 			<li class='grammh_profil'><a = href='includes/profile_page.inc.php'> Profile </a></li>
+					 			<li class='grammh_profil'><a = href='profile_page.php'> Profile </a></li>
 					 			<li><a = href='includes/sign_out.inc.php'> Log off </a></li>
 					 		</ul>	
 					 	</div>";

@@ -56,15 +56,15 @@
 
 			</div>
 
-			<div class="mid_2 button" onclick="location.href = 'heatmap.php';">
-				<h3>Upload your har files OR store them for future use</h3>
-				<div class="button_left"> Let's go</div>
+			<div class="mid_2 button" >
+				<h3>Upload new files OR have a look at the already uploaded</h3>
+				<div class="button_left" onclick="location.href = 'heatmap.php';"> Let's go</div>
 
 			</div>
 
-			<div class="mid_3" onclick="location.href = 'profile_page.php';">
+			<div class="mid_3">
 				<h3>Edit your profile page and also see some stats about your uploaded files.</h3>
-				<div class="button_right"> Manage</div>
+				<div class="button_right" onclick="location.href = 'profile_page.php';"> Manage</div>
 			</div>
 
 		</div>

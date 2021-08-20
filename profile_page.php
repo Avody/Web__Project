@@ -19,14 +19,19 @@
 	include("navbar.php");
 	require_once('includes/db.inc.php');
 	$id = $_SESSION['userid'];
+
 	$sql_isp = "SELECT ISP FROM users WHERE usersId = $id ";
-	$sql_num_rec = "SELECT COUNT(usersId) FROM uploaded_files WHERE usersId = $id ";
-	$sql_last_upload = "SELECT ISP FROM users WHERE usersId = $id ";
 	$result_isp = mysqli_query($conn,$sql_isp);
 	$result_isp = mysqli_fetch_assoc($result_isp);
-	
+
+	$sql_num_rec = "SELECT COUNT(usersId) FROM uploaded_files WHERE usersId = $id ";
 	$result_num_rec = mysqli_query($conn,$sql_num_rec);
 	$result_num_rec = mysqli_fetch_assoc($result_num_rec);
+
+	$sql_last_upload = "SELECT last_upload FROM users WHERE usersId = $id ";
+	$result_date = mysqli_query($conn,$sql_last_upload);
+	$result_date = mysqli_fetch_assoc($result_date);
+
 
 	 ?>
 
@@ -37,6 +42,9 @@
 			<div class="round_image">
 				
 				<img src="img/bob_img.jpg">
+				<div class="photo_upload">
+					
+				</div>
 
 			</div>
 	</div>
@@ -45,10 +53,10 @@
 		<div class="data_class">
 			<div class="data">
 				<ul>
-					<li><u>Username:</u><br/><?php echo $_SESSION['useruid'];?></li>
-					<li><u>Name:</u><br/><?php echo $_SESSION['fullname']; ?> </li>
-					<li><u>Email:</u><br/><?php echo $_SESSION['email']; ?> </li>
-					<li><u>Password:</u><br/>********</li>
+					<li style="margin-bottom: 5px;"><u>Username:</u><br/><?php echo $_SESSION['useruid'];?></li>
+					<li style="margin-bottom: 5px;"><u>Name:</u><br/><?php echo $_SESSION['fullname']; ?> </li>
+					<li style="margin-bottom: 10px;"><u>Email:</u><br/><?php echo $_SESSION['email']; ?> </li>
+					
 				</ul>		
 				<div class="edit_btn" onclick="location.href = 'edit_page.php';" > <a> Edit </a> </div>
 			</div>
@@ -74,7 +82,7 @@
   				</tr>
   				<tr >
    					<td>Last Upload</td>
-   				    <td> August 15, 2021</td>
+   				    <td> <?php print_r($result_date['last_upload'] ) ?></td>
     			 
   				</tr>
  				<tr >
@@ -89,6 +97,16 @@
   				</tr>
 			</table>
 		</div>
+		<div style="align-items: center; border-top:1px solid black ;display:flex; width:500px;">
+			<div style="flex-grow: 1;">DELETE UPLOADED RECORDS ?</div>
+			<div style="flex-grow:1; margin-top:5px;">
+			
+			<form method="post" action="includes/profile_page.inc.php">
+			<input  class="delete" type="submit" name="delete" value="Delete" >
+			</form>	
+			
+			</div>
+		</div>
 	</div>
 	<div class="bottom"> Copyright &copy 2021 Odysseas Avramopoulos</div>
 
@@ -97,6 +115,12 @@
 
 	<script type="text/javascript" src="js/home.js"></script>
 	<!--<script type="text/javascript" src="js/chart.js"></script> -->
+	<script>
+		function myFunction() {
+  	confirm("Are you sure you want to proceed?");
+
+}
+	</script>
 
 </body>
 </html>
