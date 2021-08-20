@@ -8,7 +8,7 @@ require_once('functions.inc.php');
 
 
 $id = $_SESSION['userid'];
-
+$uname = $_SESSION['useruid'];
 
 
 if(isset($_POST['submit'])) {
@@ -34,9 +34,9 @@ if(isset($_POST['submit'])) {
 	$fileName = $file['name'];
 	$fileTmpName = $file['tmp_name'];
 	
-	$target_dir = "../har_files/";
+	$target_dir = "../har_files/".$uname."/";
 
-	$destination = $target_dir . $fileName;
+	$destination = $target_dir.$fileName;
 
 	$check = 1 ;
 

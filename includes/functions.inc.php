@@ -103,6 +103,8 @@ function createUser($conn,$fname,$uname,$email,$pwd){
 	
 
 	mysqli_stmt_close($stmt);
+	mkdir('../har_files/'.$uname,0777,true);
+	mkdir('../img/profile_img/'.$uname,0777,true);
 
 	header("location:../sign_in.php");
 

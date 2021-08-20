@@ -19,6 +19,7 @@
 	include("navbar.php");
 	require_once('includes/db.inc.php');
 	$id = $_SESSION['userid'];
+	$uname = $_SESSION['useruid'];
 
 	$sql_isp = "SELECT ISP FROM users WHERE usersId = $id ";
 	$result_isp = mysqli_query($conn,$sql_isp);
@@ -33,6 +34,11 @@
 	$result_date = mysqli_fetch_assoc($result_date);
 
 
+
+	$sql_image = "SELECT profile_img FROM users where usersId = $id";
+	$result_image = mysqli_query($conn,$sql_image);
+	$result_image = mysqli_fetch_assoc($result_image);  
+	$image_name= $result_image["profile_img"];
 	 ?>
 
 	<div class="container">
@@ -40,9 +46,23 @@
 	<div class="image">
 
 			<div class="round_image">
+				<?php
+				if($result_image['profile_img'] == "" ) {
+					echo("<img src='img/bob_img.jpg'>");
+				}else{
+					echo("<img src='img/profile_img/$uname/$image_name'>");
+				}
 				
-				<img src="img/bob_img.jpg">
+
+
+				?>
 				<div class="photo_upload">
+					<form action="includes/upload_img.inc.php" method="post" enctype="multipart/form-data">
+						<label class="for_img_label" for="upload_btn"> 	&#128247;
+
+						</label>
+						<input type="file"  name="file" onchange="this.form.submit()" id="upload_btn">
+					</form>
 					
 				</div>
 
@@ -107,6 +127,7 @@
 			
 			</div>
 		</div>
+		
 	</div>
 	<div class="bottom"> Copyright &copy 2021 Odysseas Avramopoulos</div>
 

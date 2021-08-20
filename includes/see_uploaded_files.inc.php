@@ -11,9 +11,9 @@
 <form method="post" action="./delete_files.inc.php"  >
     <input type="checkbox" onClick="toggle(this)" id="check_all" /> Select all<br/><br/>
     <?php 
+        session_start();
 
-
-    	$dir = 'C:\wamp64\www\Github_Project\har_files';
+    	$dir = "C:\wamp64\www\Github_Project\har_files\\".$_SESSION['useruid'];
 
             
         if ($handle = opendir($dir)) {
@@ -34,6 +34,20 @@
 <input  type="button" class="return" name="return" value="Return" onclick="window.location.href='../heatmap.php'">
 </p>
 </form/>
+
+<?php 
+    if(isset($_GET['error'])){
+        if($_GET['error']=='noFileSelected'){
+            echo("No file selected");
+        }
+    }
+
+ ?>
+ <p style=" font-size:12px;" >*That won't delete the uploaded records.<br/>
+   For doing so go to the profile page. 
+ </p>
+
+ 
 
 <script type="text/javascript">
 

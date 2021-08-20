@@ -40,6 +40,23 @@ html,body{
  	box-shadow: 10px 5px 10px  black;
 	
 }
+input#upload_btn{
+	display: none;
+	position: relative;
+
+}
+.for_img_label{
+	position: absolute;
+	cursor: pointer;
+	
+	border-radius: 50%;
+	left: 2px;
+	top: 2px;
+	padding: 3px;
+
+
+
+}
 
 .round_image{
 	position: relative;
@@ -49,12 +66,13 @@ html,body{
 	
 	position: absolute;
 	bottom: 10px;
-	background-color: black;
+	background-color: white;
 	height: 30px;
 	width: 30px;
 	left: 42%;
-	opacity: 0.7;
+	opacity: 0.6;
 	border-radius: 50%;
+	border: 1px solid black;
 	
 }
 
