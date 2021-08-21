@@ -82,8 +82,19 @@
 
 
 	</nav>
-
-
+	<?php
+		if($_SESSION['useruid']=="Admin"){
+			echo"<aside class='sidebar'>
+				
+					<ul>
+						<li style='margin-bottom:20px;'><span href='#'>IP FINDER</span></li>
+						<li><a href='admin_1.php'>Users Information</a></li>
+						<li><a href='#'>About Us</a></li>
+						<li><a href='#'>Contact</a></li>
+					</ul>
+				
+			</aside>";
+	}?>
 	<script type="text/javascript" src="js/home.js"></script>
 	
 

@@ -36,7 +36,6 @@ body{
 	display: flex;
 	width: 50px;
 	height: 49px;
-	
 	align-items:  center;
 	justify-content: center;
 	cursor: pointer;
@@ -185,3 +184,58 @@ body{
 	line-height: 50px;
 }
 
+
+.sidebar{
+	position: fixed;
+	background-color: black;
+	margin-top: 50px;
+	height: 500px;
+	display: flex;
+	justify-content: center;
+	width: 0px;
+	transition: 0.5s ease-in-out;
+	border-radius: 0px  14px 500px 0px;
+	border: none;
+	border-left:none ;
+	box-shadow: 14px 13px 14px ;
+	z-index: 100002;
+
+}
+
+.sidebar > ul{
+	margin-top: 65px;
+	visibility: hidden;
+	overflow: hidden;
+
+}
+
+
+.sidebar > ul > li{
+	
+	font-size: 20px;
+	list-style: none;
+	line-height: 40px;
+	display: block;
+
+
+
+
+}
+.sidebar > ul > li > span {
+	color: white;
+	font-size: 35px;
+	white-space: nowrap;
+}
+
+.sidebar > ul > li > a{
+	text-decoration: none;
+	color: white;
+	font-weight: 10px;
+	white-space: nowrap;
+
+	
+
+}
+.sidebar > ul > li > a:hover{
+	color: rgb(170,42,50);
+}

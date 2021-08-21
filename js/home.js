@@ -9,8 +9,12 @@ let toggleNav = function(){
 	if(toggleNavStatus === false){
 		
 		getSidebarUl.style.visibility = "visible";
+		
 		getSidebar.style.width = "275px";
 		getSidebarTitle.style.opacity = "0.5";
+		getSidebar.style.border = "0.5px solid white";
+		getSidebar.style.borderLeft = "none";
+		getSidebar.style.boxShadow = "14px 13px 14px";
 
 		let arrayLength = getSidebarLinks.length;
 		for(let i =0; i<arrayLength; i++){
@@ -24,9 +28,13 @@ let toggleNav = function(){
 
 	else if(toggleNavStatus===true){
 		 
-		getSidebar.style.width = "50px";
+		getSidebar.style.width = "0px";
 		getSidebarTitle.style.opacity = "0";
-		;
+		getSidebar.style.border = "none";
+		getSidebar.style.boxShadow = "none";
+
+		
+		
 		let arrayLength = getSidebarLinks.length;
 		for(let i =0; i<arrayLength; i++){
 			getSidebarLinks[i].style.opacity=0;

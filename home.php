@@ -14,30 +14,13 @@
  	 crossorigin="anonymous"></script>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-	<script type="text/javascript">
 
-		$(window).on('scroll', function(){
-			if($(window).scrollTop()){
-				$('nav').addClass('black');
-			}
-			else{
-				$('nav').removeClass('black');
-			}
-		})
-	</script>
 </head>
 <body>
 	<?php include("NAVBAR.php") ?>
-	<!--
-	<aside class="sidebar">
-		<ul>
-			<li><span href="">Home</span></li>
-			<li><a href="">Portfolio</a></li>
-			<li><a href="">About Us</a></li>
-			<li><a href="">Contact</a></li>
-		</ul>
-	</aside>
--->
+	
+
+
 	<div class="all">
 
 		
