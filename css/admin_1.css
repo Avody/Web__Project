@@ -2,12 +2,9 @@
 .all{
 	
 	
-	background-color: red;
-	height: auto;
-	
 	display: grid;
 	grid-template-columns:repeat(12,1fr);
-	grid-template-rows:300px 300px 300px  20px;
+	grid-template-rows:300px auto 300px  20px;
 	grid-template-areas: 
 	" t t t t t t t t t t t t "
 	" m m m m m m m m m m m m "	
@@ -19,45 +16,53 @@
 .top{
 	margin-top: 50px;
 	grid-area: t;
-	background-color: red;
 	display: flex;
-}
-.top > .left{
-	flex-grow: 1;
-	background-color: white;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
 }
 
-.top > .right{
-	flex-grow: 1;
-	background-color: black;
+.container{
+	
+	display: flex;
+	flex-direction: row;
+	width: auto;
+	justify-content: space-evenly;
+
+}
+
+
+.chart_div, .chart_div_2, .chart_div_3{
+	width: 25vw;
+	
+	margin: 10px;
+
+}
+.chart_div_2{
+	display: flex;
+	flex-direction: column;
+	
+
+}
+
+#myChart2{
+	
+
 }
 
 .mid{
 	grid-area: m;
-	background-color: yellow;
-	display: flex;
+	
+	
 }
-.mid >.left{
-	flex-grow: 1;
-	background-color: black;
-}
-.mid >.right{
-	flex-grow: 1;
-	background-color: white;
-}
+
 .bot{
 	grid-area: b;
 	background-color: green;
 	display: flex;
 }
-.bot > .left{
-	flex-grow: 1;
-	background-color: white;
-}
-.bot > .right{
-	flex-grow: 1;
-	background-color: black;
-}
+
 .footer{
 	grid-area: f;
 	background-color: red;
