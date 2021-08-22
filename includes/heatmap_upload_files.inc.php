@@ -70,16 +70,29 @@ if(isset($_POST['submit'])) {
 	
 	$jsondata = file_get_contents($destination);
 	$json = json_decode($jsondata, true);
-	
 	$entries = sizeof($json['log']['entries']);
-
+	
+	
 	for($i = 0; $i<$entries; $i++){
 
 
 		$method =$json['log']['entries'][$i]['request']['method'];
 		$status =$json['log']['entries'][$i]['response']['status'];
 		$ipAddress=$json['log']['entries'][$i]['serverIPAddress'];
+		$content_type_before = $json['log']['entries'][$i]['response']['headers'];
 
+		for($p=0; $p< count($content_type_before); $p++){
+			if($content_type_before[$p]['name']=='content-type'){
+				$content_type_after = $content_type_before[$p]['value'];
+			}
+		};
+
+		$load_time = $json['log']['entries'][$i]['time'];
+		
+
+
+		
+		
 		/********** Find the coordinates of the ipAddress ***********/
 		
 
@@ -91,7 +104,7 @@ if(isset($_POST['submit'])) {
 
 		
 		
-		$sql = "INSERT INTO uploaded_files(usersId,ipAddress,method,status,lat,lng) VALUES ( $id,\"".$ipAddress."\",\"".$method."\",\"".$status."\",\"".$lat."\",\"".$lng."\");";
+		$sql = "INSERT INTO uploaded_files(usersId,ipAddress,method,status,lat,lng,content_type,load_time) VALUES ( $id,\"".$ipAddress."\",\"".$method."\",\"".$status."\",\"".$lat."\",\"".$lng."\",\"".$content_type_after."\",\"".$load_time."\");";
 		
 		
 		

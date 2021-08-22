@@ -46,13 +46,3 @@ heatmapLayer.setData(testData);
 
 
 
-/*** Mysql node ***/
-
-var mysql = require('node_modules/mysql');
-
-var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'users_project'
-});
