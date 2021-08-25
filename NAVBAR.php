@@ -87,9 +87,9 @@
 			echo"<aside class='sidebar'>
 				
 					<ul>
-						<li style='margin-bottom:20px;'><span href='#'>IP FINDER</span></li>
-						<li><a href='admin_1.php'>Users Information</a></li>
-						<li><a href='#'>About Us</a></li>
+						<li style='margin-bottom:20px cursor:pointer;'><span><a href='home.php' style='text-decoration:none; color:white;'>IP FINDER</a></span></li>
+						<li><a href='admin_1.php'>Basic Information</a></li>
+						<li><a href='admin_2.php'>Response time analyze</a></li>
 						<li><a href='#'>Contact</a></li>
 					</ul>
 				

@@ -1,0 +1,41 @@
+.all{
+	
+	display: grid;
+	grid-template-columns:repeat(12,1fr);
+	grid-template-rows:200px auto 100px 20px;
+	grid-template-areas: 
+	" t t t t t t t t t t t t "
+	" m m m m m m m m m m m m "	
+	" b b b b b b b b b b b b "
+	" f f f f f f f f f f f f ";
+}
+.top{
+	margin-top: 50px;
+	grid-area: t;
+	background-color: lightblue;
+}
+
+.mid{
+	grid-area: m;
+	background-color: lightcoral;
+	display: flex;
+	justify-content: center;
+}
+
+.bot{
+	grid-area: b;
+	background-color: lightblue;
+
+}
+
+.chart_div{
+	width: 80vw;
+}
+
+.footer{
+	grid-area: f;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	margin-right: 10px;
+}
