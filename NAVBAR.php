@@ -13,13 +13,14 @@
 
 	<!--
 	<link rel="stylesheet" type="text/css" href="css/home.css"> -->
-
+	<link rel="icon" href="./img/ip.png">
 	<link rel="stylesheet" type="text/css" href="css/NAVBAR.css">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+	<title>IP FINDER</title>
 	<script
  	 src="https://code.jquery.com/jquery-3.6.0.min.js"
  	 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="

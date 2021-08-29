@@ -19,7 +19,8 @@ if(!$conn){
 
 
 
-$sql_load_time = "SELECT content_type,AVG(load_time) FROM uploaded_files GROUP BY content_type";
+$sql_load_time = "SELECT AVG(load_time),substring(startedDateTime,12,12) as TimeOfDay FROM uploaded_files GROUP BY TimeOfDay";
+
 
 $result = mysqli_query($conn,$sql_load_time);
 
@@ -28,5 +29,9 @@ while($row = mysqli_fetch_assoc($result)){
 	$data[] = $row;
 }
 
-print json_encode($data);
+echo json_encode($data);
+
+
+
+
 

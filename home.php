@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>IP FINDER</title>
+	<title>IP FINDER - Home</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/home_main_body.css">
 	<meta charset="utf-8">

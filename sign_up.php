@@ -9,8 +9,8 @@
 <html>
 
 <head>
-
-	<title>IP FINDER</title>
+	<link rel="icon" href="./img/ip.png">
+	<title>IP FINDER - Sign up </title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/signup.css "/>

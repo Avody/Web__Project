@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>IP FINDER</title>
+	<title>IP FINDER - Edit profile</title>
 	<link rel="stylesheet" type="text/css" href="css/profile.css">
 	
 	<meta charset="utf-8">

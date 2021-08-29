@@ -4,21 +4,20 @@ $(document).ready(function(){
         method: "GET",
         success: function(data) {
             var json = JSON.parse(data);
-            console.log(json);
-            var content_type = [];
+            var time_of_day = [];
             var avg_time = [];
             for(var i=0; i<json.length; i++){
-                content_type.push(json[i]['content_type']);
+                time_of_day.push(json[i]['TimeOfDay']);
                 avg_time.push(json[i]['AVG(load_time)']);
             }
             
             var chartdata = {
-                labels: content_type,
+                labels: time_of_day,
                 datasets : [
                 {
-                    label: 'Response time / content-type (ms)',
+                    label: 'average response time of content_type',
                     backgroundColor:[
-                    'rgba(1, 9, 3, 0.2),0.2)',
+                    'rgba(1, 9, 3, 0.2)',
                     'rgba(104, 162, 235, 0.2)',
                     'rgba(255, 106, 6, 0.4)',
                     'rgba(75, 192, 192, 0.4)',
@@ -29,19 +28,30 @@ $(document).ready(function(){
                     hoverBackgroundColor:'lightblue',
                     data:avg_time
 
+
                 }
                 ]
             };
-            var ctx = $("#myChart");
+
+            
+            var ctx = document.getElementById('myChart').getContext('2d');
 
             var myChart = new Chart(ctx,{
                 type: 'line',
                 data:chartdata
             })
+
+
+
             
         },
         error: function(data) {
             console.log(data);
         }
     });
+
+
 });
+
+
+

@@ -41,7 +41,7 @@ $result_3 = mysqli_fetch_assoc($sql_uni_ip);
 					</tr>
 					
 					<tr>
-						<th >Unique ISPs from our clients: </th>
+						<th >Unique ISPs from clients: </th>
 						<td><?php echo($result_2['COUNT(DISTINCT(ISP))']);?></td>
 					</tr>
 					<tr>

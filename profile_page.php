@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Profile Page</title>
+	<title>IP FINDER - Profile Page</title>
 	<link rel="stylesheet" type="text/css" href="css/profile.css">
 	
 	<meta charset="utf-8">

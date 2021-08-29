@@ -5,31 +5,59 @@
 	grid-template-rows:200px auto 100px 20px;
 	grid-template-areas: 
 	" t t t t t t t t t t t t "
-	" m m m m m m m m m m m m "	
+	" m m m m m m m m m r r r "	
 	" b b b b b b b b b b b b "
 	" f f f f f f f f f f f f ";
 }
+
 .top{
 	margin-top: 50px;
 	grid-area: t;
-	background-color: lightblue;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
 }
 
 .mid{
 	grid-area: m;
-	background-color: lightcoral;
+	
 	display: flex;
 	justify-content: center;
 }
 
+.mid_right{
+	grid-area: r;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	border-left: 1px solid black;
+}
+
+.dropdown{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.dropdown_2{
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .bot{
 	grid-area: b;
-	background-color: lightblue;
-
+	
 }
 
 .chart_div{
-	width: 80vw;
+	width: 70vw;
 }
 
 .footer{

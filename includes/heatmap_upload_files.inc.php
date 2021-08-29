@@ -88,6 +88,8 @@ if(isset($_POST['submit'])) {
 		};
 
 		$load_time = $json['log']['entries'][$i]['time'];
+		$startedDateTime = $json['log']['entries'][$i]['startedDateTime'];
+		
 		
 
 
@@ -104,7 +106,7 @@ if(isset($_POST['submit'])) {
 
 		
 		
-		$sql = "INSERT INTO uploaded_files(usersId,ipAddress,method,status,lat,lng,content_type,load_time) VALUES ( $id,\"".$ipAddress."\",\"".$method."\",\"".$status."\",\"".$lat."\",\"".$lng."\",\"".$content_type_after."\",\"".$load_time."\");";
+		$sql = "INSERT INTO uploaded_files(usersId,ipAddress,method,status,lat,lng,content_type,load_time,startedDateTime) VALUES ( $id,\"".$ipAddress."\",\"".$method."\",\"".$status."\",\"".$lat."\",\"".$lng."\",\"".$content_type_after."\",\"".$load_time."\",\"".$startedDateTime."\");";
 		
 		
 		
