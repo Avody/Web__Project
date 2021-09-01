@@ -89,6 +89,16 @@ if(isset($_POST['submit'])) {
 
 		$load_time = $json['log']['entries'][$i]['time'];
 		$startedDateTime = $json['log']['entries'][$i]['startedDateTime'];
+		$day_string = $json['log']['entries'][$i]['response']['headers'];
+
+		for($g=0; $g< count($day_string); $g++){
+			if($day_string[$g]['name']=='date'){
+				$day = $day_string[$g]['value'];
+			}
+		};
+
+		$day = substr($day, 0,3);
+		
 		
 		
 
@@ -106,7 +116,7 @@ if(isset($_POST['submit'])) {
 
 		
 		
-		$sql = "INSERT INTO uploaded_files(usersId,ipAddress,method,status,lat,lng,content_type,load_time,startedDateTime) VALUES ( $id,\"".$ipAddress."\",\"".$method."\",\"".$status."\",\"".$lat."\",\"".$lng."\",\"".$content_type_after."\",\"".$load_time."\",\"".$startedDateTime."\");";
+		$sql = "INSERT INTO uploaded_files(usersId,ipAddress,method,status,lat,lng,content_type,load_time,startedDateTime,day) VALUES ( $id,\"".$ipAddress."\",\"".$method."\",\"".$status."\",\"".$lat."\",\"".$lng."\",\"".$content_type_after."\",\"".$load_time."\",\"".$startedDateTime."\",\"".$day."\");";
 		
 		
 		

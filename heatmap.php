@@ -115,6 +115,7 @@
 		{ draggable: "true" });
 		marker.addTo(mymap);
 
+/*** IPs in proper form ***/
 		var text = '<?= $text ?>';
 		var table =  text ;
 		console.log(JSON.parse(table));

@@ -34,7 +34,7 @@
 				<select id="options" name="options" onchange="populate(this.id,'options_2')">
 					<option value ="--Analyze--">--Analyze--</option>
 					<option value ="content_type">Content-type</option>
-					<option value="Day of week">Day of week</option>
+					<option value="day">Day of week</option>
 					<option value="method">HTTP method</option>
 					<option value ="ISP">ISP</option>
 				</select>
@@ -78,15 +78,15 @@
 							$row = $row['content_type'];
 							echo("<option value='$row'>$row</option>");
 						}
-						echo("<option value='All'  >All</option>");
+						echo("<option value='All'selected='' >All</option>");
 						echo("<optgroup/>");
 
 
 					 ?>";
 					
 				}
-				else if(s1.value == "Day of week"){
-					s2.innerHTML = "<option value ='Monday'>Monday</option><option value ='Tuesday'>Tuesday</option><option value ='Wednesday'>Wednesday</option><option value ='Thursday'>Thursday</option><option value ='Friday'>Friday</option><option value ='Saturday'>Saturday</option><option value ='Sunday'>Sunday</option><option value ='All'>All</option>";
+				else if(s1.value == "day"){
+					s2.innerHTML = "<option value ='Mon'>Monday</option><option value ='Tue'>Tuesday</option><option value ='Wed'>Wednesday</option><option value ='Thu'>Thursday</option><option value ='Fri'>Friday</option><option value ='Sat'>Saturday</option><option value ='Sun'>Sunday</option><option value ='All' selected=''>All</option>";
 
 				}
 				else if(s1.value=="method"){
@@ -99,7 +99,7 @@
 							$row = $row['method'];
 							echo("<option value='$row'>$row</option>");
 						}
-						echo("<option value='All'>All</option>");
+						echo("<option value='All' selected=''>All</option>");
 
 
 					 ?>";
@@ -114,7 +114,7 @@
 							$row = $row['ISP'];
 							echo("<option value='$row'>$row</option>");
 						}
-						echo("<option value='All'>All</option>");
+						echo("<option value='All' selected=''>All</option>");
 
 
 					 ?>";

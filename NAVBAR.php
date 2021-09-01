@@ -13,7 +13,7 @@
 
 	<!--
 	<link rel="stylesheet" type="text/css" href="css/home.css"> -->
-	<link rel="icon" href="./img/ip.png">
+	<link rel="icon" href="img/ip.png">
 	<link rel="stylesheet" type="text/css" href="css/NAVBAR.css">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -90,8 +90,9 @@
 					<ul>
 						<li style='margin-bottom:20px cursor:pointer;'><span><a href='home.php' style='text-decoration:none; color:white;'>IP FINDER</a></span></li>
 						<li><a href='admin_1.php'>Basic Information</a></li>
-						<li><a href='admin_2.php'>Response time analyze</a></li>
-						<li><a href='#'>Contact</a></li>
+						<li><a href='admin_2.php'>Response Time Analyze</a></li>
+						<li><a href='admin_3.php'>Cache Analytics</a></li>
+						<li><a href='admin_4.php'>Data Visualisation</a></li>
 					</ul>
 				
 			</aside>";

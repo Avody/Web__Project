@@ -18,16 +18,35 @@ if(!$conn){
 	die("Connection failed: " . mysql_connect_error());
 };
 
+
+
+
+
+
 $tag = $_POST['tag'];
 $option = $_POST['option'];
 
 
-if(isset($option) === "All"){
+
+if(isset($option)){
+
+
+if($tag !== "ISP" ){
+	
+
+if($option === "All" ){
 	$sql_load_time = "SELECT AVG(load_time),substring(startedDateTime,12,12) as TimeOfDay FROM uploaded_files GROUP BY TimeOfDay";
 }else{
 	$sql_load_time = "SELECT AVG(load_time),substring(startedDateTime,12,12) as TimeOfDay FROM uploaded_files Where ".$tag."='$option' GROUP BY TimeOfDay";
 }
 
+}else{
+	if($option !=="All"){
+	$sql_load_time = "SELECT AVG(load_time),substring(startedDateTime,12,12) as TimeOfDay from uploaded_files right JOIN users ON users.usersId=uploaded_files.usersId AND users.ISP=\"$option\" GROUP BY startedDateTime";
+	}else{
+		$sql_load_time = "SELECT AVG(load_time),substring(startedDateTime,12,12) as TimeOfDay FROM uploaded_files GROUP BY TimeOfDay";
+	}
+}
 
 
 
@@ -39,7 +58,7 @@ while($row = mysqli_fetch_assoc($result)){
 }
 
 print json_encode($data);
-
+}
 
 
 
