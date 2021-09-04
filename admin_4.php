@@ -11,8 +11,7 @@
 	integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 	crossorigin="">
 </script>
-<script src="https://cdn.jsdelivr.net/npm/heatmapjs@2.0.2/hea
-tmap.js"> </script>
+<script src="https://cdn.jsdelivr.net/npm/heatmapjs@2.0.2/heatmap.js"> </script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-heatmap@1.0.0/leaflet-heatmap.js"></script>
 
 
@@ -22,9 +21,10 @@ tmap.js"> </script>
 	<div class="all">
 		<div class="top">
 			
-			<div class="talk">
-				Here you can see every ip address with lines that show the direction of the next requested ip address.
-			</div>
+			
+			<b>DATA VISUALISATION</b>
+			<p style="font-size: 17px;">Here you can see every ip address with lines that show the direction of the next requested ip address.</p>
+			
 			
 		</div>
 		

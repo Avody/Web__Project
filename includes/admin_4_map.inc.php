@@ -3,7 +3,7 @@
 
 require_once('db.inc.php');
 
-$sql_coordinates = "SELECT lat,lng FROM uploaded_files WHERE NOT lat='' ";
+$sql_coordinates = "SELECT lat,lng FROM uploaded_files WHERE  lat !=' ' or lat !='-' and lng !=' ' ";
 
 
 
@@ -22,7 +22,7 @@ while($row = mysqli_fetch_assoc($result)){
 
 
 
-echo ($text);
+print_r($text);
 
 
 

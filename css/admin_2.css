@@ -1,5 +1,5 @@
 .all{
-	
+	margin-top: 50px;
 	display: grid;
 	grid-template-columns:repeat(12,1fr);
 	grid-template-rows:200px auto 100px 20px;
@@ -11,12 +11,13 @@
 }
 
 .top{
-	margin-top: 50px;
+	
 	grid-area: t;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	font-size: 20px;
+	font-size: 25px;
 }
 
 .mid{
@@ -24,6 +25,7 @@
 	
 	display: flex;
 	justify-content: center;
+
 }
 
 .mid_right{

@@ -28,6 +28,7 @@
 	width: auto;
 	justify-content: space-evenly;
 	text-align: center;
+	
 
 }
 
@@ -75,6 +76,7 @@ th, td {
 .mid{
 	grid-area: m;
 	padding-top: 40px;
+
 	
 }
 

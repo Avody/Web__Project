@@ -20,7 +20,7 @@ $(document).ready(function(){
 			
 			/*** Creating the markers ***/
 			
-
+			console.log(data);
 			
 
 			for(var i=0; i<data.length;i++){
@@ -71,15 +71,21 @@ $(document).ready(function(){
 			}
 
 
-
-
-
-
-			var polyline1 = L.polyline(data1, {color:'green',weight:0.5}).addTo(mymap);
-			var polyline2 = L.polyline(data2, {color:'red',weight:2}).addTo(mymap);
-			var polyline3 = L.polyline(data3, {color:'black',weight:3}).addTo(mymap);
-			var polyline4 = L.polyline(data4, {color:'brown',weight:4}).addTo(mymap);
-			var polyline5 = L.polyline(data5, {color:'purple',weight:5}).addTo(mymap);
+			if(data1.length !==0){
+				var polyline1 = L.polyline(data1, {color:'green',weight:1}).addTo(mymap);
+			}	
+			if(data2.length !==0){
+				var polyline2 = L.polyline(data2, {color:'red',weight:2}).addTo(mymap);
+			}	
+			if(data3.length !==0){
+				var polyline3 = L.polyline(data3, {color:'black',weight:3}).addTo(mymap);
+			}	
+			if(data4.length !==0){
+				var polyline4 = L.polyline(data4, {color:'brown',weight:4}).addTo(mymap);
+			}	
+			if(data5.length !==0){
+				var polyline5 = L.polyline(data5, {color:'purple',weight:5}).addTo(mymap);
+			}	
 			
 
 

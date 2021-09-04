@@ -3,23 +3,11 @@
 session_start();
 
 
-$serverName = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "users_project";
-
-
-$conn = mysqli_connect($serverName,$dbUsername,$dbPassword,$dbName);
-
-
-if(!$conn){
-
-	die("Connection failed: " . mysql_connect_error());
-};
+require_once('db.inc.php');
 
 
 
-$sql_load_time = "SELECT content_type,AVG(load_time) FROM uploaded_files GROUP BY content_type";
+$sql_load_time = "SELECT content_type,AVG(load_time) FROM uploaded_files where content_type !='-' GROUP BY content_type";
 
 $result = mysqli_query($conn,$sql_load_time);
 

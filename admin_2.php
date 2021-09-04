@@ -17,7 +17,8 @@
 
 	<div class="all">
 		<div class="top">
-			Analyze the response time of the websites based on day, week, ISP.
+			<b>RESPONSE TIME ANALYSE</b>
+			<p style="font-size:17px;">Analyze the response time of the websites based on day, week, ISP.</p>
 			
 
 		</div>
@@ -70,7 +71,7 @@
 				if (s1.value=="content_type"){
 					s2.innerHTML="<?php 
 
-						$sql = "SELECT DISTINCT(content_type) from uploaded_files where not content_type = '' ";
+						$sql = "SELECT DISTINCT(content_type) from uploaded_files where content_type != '' and content_type != '-'";
 						$result = mysqli_query($conn, $sql);
 						
 						echo("<optgroup label='Select Content-type'>");

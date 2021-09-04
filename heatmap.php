@@ -26,7 +26,7 @@
 	require_once('includes/db.inc.php');
 	$id = $_SESSION['userid'];
 
-	$sql = "SELECT * from uploaded_files where usersId = $id and not lat = '' ";
+	$sql = "SELECT * from uploaded_files where usersId = $id and not lat = '' and not lat='-' ";
 	$result = mysqli_query($conn,$sql);
 
 	if(!$result){
@@ -125,7 +125,7 @@
 /*** Heatmap***/
 
 		var testData = {
-		  max: 8,
+		  max: 25,
 		  data: JSON.parse(table)
 		};
 

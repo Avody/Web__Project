@@ -1,26 +1,7 @@
 <?php 
 
 
-
-
-
-$serverName = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "users_project";
-
-
-$conn = mysqli_connect($serverName,$dbUsername,$dbPassword,$dbName);
-
-
-if(!$conn){
-
-	die("Connection failed: " . mysql_connect_error());
-};
-
-
-
-
+require_once('db.inc.php');
 
 
 $tag = $_POST['tag'];
@@ -34,11 +15,11 @@ if(isset($option)){
 if($tag !== "ISP" ){
 	
 
-if($option === "All" ){
-	$sql_load_time = "SELECT AVG(load_time),substring(startedDateTime,12,12) as TimeOfDay FROM uploaded_files GROUP BY TimeOfDay";
-}else{
-	$sql_load_time = "SELECT AVG(load_time),substring(startedDateTime,12,12) as TimeOfDay FROM uploaded_files Where ".$tag."='$option' GROUP BY TimeOfDay";
-}
+	if($option === "All" ){
+		$sql_load_time = "SELECT AVG(load_time),substring(startedDateTime,12,12) as TimeOfDay FROM uploaded_files GROUP BY TimeOfDay";
+	}else{
+		$sql_load_time = "SELECT AVG(load_time),substring(startedDateTime,12,12) as TimeOfDay FROM uploaded_files Where ".$tag."='$option' and content_type != '-' GROUP BY TimeOfDay";
+	}
 
 }else{
 	if($option !=="All"){
