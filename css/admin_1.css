@@ -1,8 +1,9 @@
 
 .all{
+	height: auto;
 	display: grid;
 	grid-template-columns:repeat(12,1fr);
-	grid-template-rows:300px auto auto  20px;
+	grid-template-rows:300px auto auto  auto;
 	grid-template-areas: 
 	" t t t t t t t t t t t t "
 	" m m m m m m m m m m m m "	

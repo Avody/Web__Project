@@ -48,24 +48,21 @@ $(document).ready(function(){
 
 			for(var i=0; i<data.length;i++){
 
-				if(counts[data[i]] < 0.05*(data.length)){
+				if(counts[data[i]] < 0.1*(data.length)){
 
 					data1.push(data[i]);
 
-				}else if(counts[data[i]] < 0.1*(data.length)) {
+				}else if(counts[data[i]] < 0.2*(data.length)) {
 
 					data2.push(data[i]);
 
-				}else if(counts[data[i]] < 0.2*(data.length)){
+				}else if(counts[data[i]] < 0.4*(data.length)){
 
 					data3.push(data[i]);
 
-				}else if(counts[data[i]] < 0.4*(data.length)){
-
-					data4.push(data[i]);
 				}else{
 
-					data5.push(data[i]);
+					data4.push(data[i]);
 				}
 
 			}
@@ -83,9 +80,7 @@ $(document).ready(function(){
 			if(data4.length !==0){
 				var polyline4 = L.polyline(data4, {color:'brown',weight:4}).addTo(mymap);
 			}	
-			if(data5.length !==0){
-				var polyline5 = L.polyline(data5, {color:'purple',weight:5}).addTo(mymap);
-			}	
+				
 			
 
 

@@ -23,7 +23,7 @@
 			
 			
 			<b>DATA VISUALISATION</b>
-			<p style="font-size: 17px;">Here you can see every ip address with lines that show the direction of the next requested ip address.</p>
+			<p style="font-size: 17px;">Ip addresses connected with lines showing the traffic of each route. </p>
 			
 			
 		</div>
@@ -42,28 +42,25 @@
 						</div>
 						<div class="percentages">
 							<div class="green" style="background-color:green; height:3px; width:22px; border: 14px;"></div>	
-							<div>Covers 5% of the traffic.</div>
+							<div>Covers 10% of the traffic.</div>
 						</div>
 
 						<div class="percentages">
 							<div class="red" style="background-color:red; height:3px; width:22px; border: 14px;"></div>
-							<div >Covers 10% of the traffic.</div>							
+							<div >Covers 20% of the traffic.</div>							
 						</div>
 
 						<div class="percentages">
 							<div class="black" style="background-color:black; height:3px; width:22px; border: 14px;"></div>
-							<div>Covers 20% of the traffic.</div>							
+							<div>Covers 40% of the traffic.</div>							
 						</div>
 
 						<div class="percentages">
 							<div class="brown" style="background-color:brown; height:3px; width:22px; border: 14px;"></div>
-							<div>Covers 40% of the traffic.</div>
-						</div>
-						
-						<div class="percentages">
-							<div class="purple" style="background-color:purple; height:3px; width:22px; border: 14px;"></div>
 							<div>Covers more than 40% of the traffic.</div>
 						</div>
+						
+						
 					</div>
 			</div>
 		</div>

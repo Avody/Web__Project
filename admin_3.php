@@ -80,7 +80,9 @@
 		<div class="bot_time_two">
 			<p style="font-size:17px; margin-bottom: 4px;margin-top: 10px;"><b>See the percentage of every content-type</b></p>
 			<div class="chart_2" id="chart_2">
+				
 				<canvas id="myChart_2"></canvas>
+				
 			</div>
 			<div class="dropdown">
 				<select id="options" name="options" onchange="change_data()">
@@ -160,7 +162,7 @@
 
 					
 					
-
+					$('#myChart2').remove();
 					
  					document.getElementById('chart_2').innerHTML= "<canvas id='myChart_2'></canvas>";
   				
@@ -174,7 +176,7 @@
 
 					}); 
 					
-					$('#myChart2').update();
+					
 					
 
 

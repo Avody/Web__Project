@@ -17,6 +17,7 @@
    <script src="https://cdn.jsdelivr.net/npm/heatmapjs@2.0.2/hea
 	tmap.js"> </script>
 	<script src="https://cdn.jsdelivr.net/npm/leaflet-heatmap@1.0.0/leaflet-heatmap.js"></script>
+	
 
 </head>
 <body>
@@ -95,10 +96,12 @@
 		</div>
 
 
-		<div class="footer">Copyright &copy 2021 Odysseas Avramopoulos
+		<div class="footer">
+			Copyright &copy 2021 Odysseas Avramopoulos
 		</div>
 
 	</div>	
+
 
 	<script type="text/javascript" >
 /*** Map display ***/

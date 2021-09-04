@@ -3,8 +3,26 @@
 	if(!isset($_SESSION['useruid'])){
 		header("location:sign_in.php");
 	}
+
+
+	
+
+	if (isset($_SESSION['LAST_ACTIVITY'])){
+
+		if(time() - $_SESSION['LAST_ACTIVITY'] > 900){ //15 lepta session
+			session_unset();      
+    		session_destroy();
+    		header("location:sign_in.php?Session time out");
+
+		}else if(time() - $_SESSION["LAST_ACTIVITY"] > 60){
+			$_SESSION["LAST_ACTIVITY"] = time();
+    	   
+		}
+	}
 	
  ?>
+		
+		
 
 
 
@@ -20,6 +38,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
 	<title>IP FINDER</title>
 	<script
  	 src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -93,11 +112,51 @@
 						<li><a href='admin_2.php'>Response Time Analyze</a></li>
 						<li><a href='admin_3.php'>Cache Analytics</a></li>
 						<li><a href='admin_4.php'>Data Visualisation</a></li>
+						<li><div class='timer' id='timer' style='color:white; opacity:0.2; font-size:14px; overflow: hidden;'> </div></li>
 					</ul>
 				
 			</aside>";
 	}?>
 	<script type="text/javascript" src="js/home.js"></script>
+
+	<script type="text/javascript">
+		var counter=0;
+
+		
+		
+
+		function setup(){
+			
+			noCanvas();
+			var timer = select('#timer');
+			var session_time = 900; //minutes
+				
+			function sec_to_mins(s){
+				var mins = floor(s/60);
+				var secs = s % 60;
+				var time = nf(mins,2)+":"+nf(secs,2);
+				return (time);
+			}
+			timer.html("Session time: "+sec_to_mins(session_time));
+
+			var interval = setInterval(time_update,1000);
+
+			function time_update(){
+				counter++;
+				timer.html("Session time: "+sec_to_mins(session_time-counter));
+
+				if(session_time== counter){
+				clearInterval(interval);
+				counter =0;
+			}
+			}
+			
+			
+
+			
+		}
+	</script>
 	
 
 </body>
+
