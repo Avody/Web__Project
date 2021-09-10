@@ -5,11 +5,17 @@
 	$uname = $_POST['Username'];
 	$pwd = $_POST['password'];
 	$id = $_SESSION['userid'];
+	$username = $_SESSION['useruid'];
+	
+	
 
 	require_once('db.inc.php');
 	require_once('functions.inc.php');
 
-	
+	if($username == 'Admin'){
+		header("location: ../edit_page.php?error=YOU_ARE_THE_ADMIN");
+		exit();
+	}
 	
 	if (emptyInputSignin($uname,$pwd) !== false){
 		header("location: ../edit_page.php?error=emptyinput");
@@ -26,6 +32,7 @@
 		header("location:../edit_page.php?error=usernametaken");
 		exit();
 	}
+	
 
 	if (wrong_pwd_check($conn,$pwd,$id) === false){
 		header("location:../edit_page.php?error=wrongPassword");

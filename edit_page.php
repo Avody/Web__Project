@@ -34,17 +34,19 @@
 			<div class="buttons">
 
 				<div class="new_data">
-				<ul>
-					<li id="button1" class="l1">Change Username</li>
-					<li id="button2" class="l2">Change Name</li>
-					<li id="button3" class="l3">Change Email </li>
-					<li id="button4" class="l4">Change Password</li>
-				</ul>	
-					
+					<ul>
+						<li id="button1" class="l1">Change Username</li>
+						<li id="button2" class="l2">Change Name</li>
+						<li id="button3" class="l3">Change Email </li>
+						<li id="button4" class="l4">Change Password</li>
+					</ul>	
+						
+				
+				</div>
+
 				
 			</div>
-				
-			</div>
+
 		
 			<div class="form">
 				<div class="username_change">
@@ -113,10 +115,19 @@
 
 			</div>
 
+
 		</div>
+		<?php 
+					  	if(isset($_GET['error'])){
+					  		if($_GET['error'] == "YOU_ARE_THE_ADMIN"){
+					  			echo "<p style='margin-left:47%;' class = 'error_message'>You are the admin dude xD !</p>";
+					  		}
+					  		
+					  	}
+					   ?>
 
- </div>
-
+ 
+					
 
 
 <script type="text/javascript" src="js/edit_page.js"></script>

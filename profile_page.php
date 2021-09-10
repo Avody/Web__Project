@@ -33,7 +33,9 @@
 	$result_date = mysqli_query($conn,$sql_last_upload);
 	$result_date = mysqli_fetch_assoc($result_date);
 
-
+	$sql_ip ="SELECT myip FROM users where usersId=$id ";
+	$result_ip = mysqli_query($conn,$sql_ip);
+	$result_ip = mysqli_fetch_assoc($result_ip);
 
 	$sql_image = "SELECT profile_img FROM users where usersId = $id";
 	$result_image = mysqli_query($conn,$sql_image);
@@ -115,6 +117,12 @@
    				    <td><?php print_r($result_isp['ISP'])?></td>
    				 
   				</tr>
+  				<tr >
+   				    <td>Your IP Address</td>
+   				    <td><?php print_r($result_ip['myip'])?></td>
+   				 
+  				</tr>
+
 			</table>
 		</div>
 		<div style="align-items: center; border-top:1px solid black ;display:flex; width:500px;">

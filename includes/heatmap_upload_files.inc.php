@@ -12,21 +12,34 @@ $uname = $_SESSION['useruid'];
 
 
 if(isset($_POST['submit'])) {
+
+
 	/*** Isp track ***/
 
 	//$response = file_get_contents('https://api.ipdata.co/?api-key=e0565ee9be214f97f5e12d53de0b908676676b9d8e275f8a71b23f92');
 
+	
+	//$response = curl_get_contents('http://api.ipapi.com?access_key=13ab572acc8be2c3a96c26c846f8b19b');
 
 	$response = curl_get_contents('https://api.ipdata.co/?api-key=efc602f8507785408c4ff17cf5380c0eaa106ffc99113a79fccfca91');
 	
-
 	$x = json_decode($response,true);
 
 	$isp = $x['asn']['name'];
+	$home_ip = $x['ip'];
+	$response2 = file_get_contents('http://api.ipstack.com/'.$home_ip.'?access_key=e02c71c25691f86c19ac24ccaee78e3b');
+
+	
+	$x2 = json_decode($response2,true);
+	
+	$myip = $x2['ip'];
+	$mylat = $x2['latitude'];
+	$mylng = $x2['longitude'];
+	
+	
 
 	$query_to_database = "UPDATE users
-	SET ISP = \"".$isp."\"
-	WHERE usersId = $id";
+	SET ISP = \"".$isp."\",myip = \"".$myip."\" , lat = \"".$mylat." \", lng = \"".$mylng ."\" WHERE usersId = $id";
 	
 
 	mysqli_query($conn,$query_to_database);
@@ -36,8 +49,70 @@ if(isset($_POST['submit'])) {
 
 	/*** Upload the data ***/
 	$file = $_FILES['file'];
-	$fileName = $file['name'];
 	$fileTmpName = $file['tmp_name'];
+	$fileName = $file['name'];
+
+	if(empty($fileTmpName)){
+		header("location:../heatmap.php?error=noSelectedFile");
+		exit();
+	}
+
+		/****clean cookies from files***/
+
+	$file_to_clean = file_get_contents($fileTmpName);
+	$file_to_clean = json_decode($file_to_clean, true);
+
+	$entries_to_clean = count($file_to_clean['log']['entries']);
+	
+	
+	for($j=0; $j<$entries_to_clean; $j++){
+
+
+		$num_cook = count($file_to_clean['log']['entries'][$j]['request']['cookies']);
+		for($i=0; $i<= $num_cook; $i++){
+			$file_to_clean['log']['entries'][$j]['request']['cookies'][$i]['value'] = "ERASED FROM IP FINDER";
+		
+		}
+	}
+
+	for($j=0; $j<$entries_to_clean; $j++){
+		for($p=0; $p< count($file_to_clean['log']['entries'][$j]['response']['headers']); $p++){
+	
+			if($file_to_clean['log']['entries'][$j]['response']['headers'][$p]['name']=='set-cookie'){
+				$file_to_clean['log']['entries'][$j]['response']['headers'][$p]['value'] = "ERASED FROM IP FINDER";
+				
+			} 
+			if($file_to_clean['log']['entries'][$j]['response']['headers'][$p]['name']=='cookie'){
+				$file_to_clean['log']['entries'][$j]['response']['headers'][$p]['value'] = "ERASED FROM IP FINDER";
+			}
+		}
+	}
+	for($j=0; $j<$entries_to_clean; $j++){
+		for($p=0; $p< count($file_to_clean['log']['entries'][$j]['request']['headers']); $p++){
+	
+			if($file_to_clean['log']['entries'][$j]['request']['headers'][$p]['name']=='set-cookie'){
+				$file_to_clean['log']['entries'][$j]['request']['headers'][$p]['value'] = "ERASED FROM IP FINDER";
+				
+			} 
+			if($file_to_clean['log']['entries'][$j]['request']['headers'][$p]['name']=='cookie'){
+				$file_to_clean['log']['entries'][$j]['request']['headers'][$p]['value'] = "ERASED FROM IP FINDER";
+			}
+		}
+	}
+
+
+
+	
+
+
+	file_put_contents($fileTmpName, json_encode($file_to_clean));
+
+	
+	
+	
+		/*****End of cleaning*****/
+	
+	
 	
 	$target_dir = "../har_files/".$uname."/";
 
@@ -48,10 +123,7 @@ if(isset($_POST['submit'])) {
 	$type = explode('.', $fileName );
 	$typeImported = end($type);
 
-	if(empty($fileTmpName)){
-		header("location:../heatmap.php?error=noSelectedFile");
-		exit();
-	}
+
 
 	if( $typeImported !== "har"){
 		header("location:../heatmap.php?error=wrongFileType");
@@ -297,6 +369,8 @@ if(isset($_POST['submit'])) {
 		
 
 		/*** Insert data in database ***/
+
+		
 		
 		$sql = "INSERT INTO uploaded_files(usersId,ipAddress,method,status,lat,lng,content_type,load_time,startedDateTime,day,last_modified,expires) VALUES ( $id,\"".$ipAddress."\",\"".$method."\",\"".$status."\",\"".$lat."\",\"".$lng."\",\"".$content_type_after."\",\"".$load_time."\",\"".$startedDateTime."\",\"".$day."\",\"".$last_modified."\",\"".$expires."\");";
 		

@@ -23,7 +23,8 @@
 			
 			
 			<b>DATA VISUALISATION</b>
-			<p style="font-size: 17px;">Ip addresses connected with lines showing the traffic of each route. </p>
+			<p style="font-size: 17px;">Ip addresses connected with lines with your home ip. <br>
+			Line is thicker if the communication with that ip is more frequent. </p>
 			
 			
 		</div>
@@ -34,35 +35,7 @@
 			
 		</div>
 		<div class="bot">
-			<div class="colors">
-
-					<div class="right_right">
-						<div style=" text-align: center; font-weight: bold; margin-top:5px; margin-bottom: 2px; text-decoration: underline;">
-						Traffic Over The Internet
-						</div>
-						<div class="percentages">
-							<div class="green" style="background-color:green; height:3px; width:22px; border: 14px;"></div>	
-							<div>Covers 10% of the traffic.</div>
-						</div>
-
-						<div class="percentages">
-							<div class="red" style="background-color:red; height:3px; width:22px; border: 14px;"></div>
-							<div >Covers 20% of the traffic.</div>							
-						</div>
-
-						<div class="percentages">
-							<div class="black" style="background-color:black; height:3px; width:22px; border: 14px;"></div>
-							<div>Covers 40% of the traffic.</div>							
-						</div>
-
-						<div class="percentages">
-							<div class="brown" style="background-color:brown; height:3px; width:22px; border: 14px;"></div>
-							<div>Covers more than 40% of the traffic.</div>
-						</div>
-						
-						
-					</div>
-			</div>
+			
 		</div>
 
 		<div class="footer">Copyright &copy 2021 Odysseas Avramopoulos</div>

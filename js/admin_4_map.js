@@ -20,12 +20,30 @@ $(document).ready(function(){
 			
 			/*** Creating the markers ***/
 			
-			console.log(data);
 			
+			
+			
+				
+			var unique = (value, index, self) =>{
 
-			for(var i=0; i<data.length;i++){
-				L.marker(data[i],{title:"lat: "+data[i][0]+", lng: "+data[i][1]}).addTo(mymap);
+				var findIndex = (element) => element[0] == value[0];
 
+				return self.findIndex(findIndex) === index;
+			}
+			
+			var positions = data.filter(unique);
+
+			var you_icon = L.icon({
+			    iconUrl: 'img/icons8-marker-32.png',
+			    iconSize:     [38, 40], // size of the icon
+			    iconAnchor:   [20, 37], // point of the icon which will correspond to marker's location
+			    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+			});
+			
+			var a = L.marker(positions[0],{title:"YOUR HOUSE lat: "+positions[0][0]+", lng: "+positions[0][1], icon:you_icon}).addTo(mymap);
+			
+			for(var i=1; i<positions.length;i++){
+				L.marker(positions[i],{title:"lat: "+positions[i][0]+", lng: "+positions[i][1]}).addTo(mymap);
 			}
 
 
@@ -36,54 +54,21 @@ $(document).ready(function(){
 			for (var i = 0; i < data.length; i++) {
 				counts[data[i]] = 1 + (counts[data[i]] || 0);
 			}
+			
+			
+			positions.forEach(element =>{
 
+				var weight = ((counts[element])/(data.length)*10)+1;
+				console.log(weight);
 
-			data1 = new Array();
-			data2 = new Array();
-			data3 = new Array();
-			data4 = new Array();
-			data5 = new Array();
+				var newdata = [data[0],element];
+
+				L.polyline(newdata, {color:'red',weight:weight}).addTo(mymap);
+
+			})
+
 
 			
-
-			for(var i=0; i<data.length;i++){
-
-				if(counts[data[i]] < 0.1*(data.length)){
-
-					data1.push(data[i]);
-
-				}else if(counts[data[i]] < 0.2*(data.length)) {
-
-					data2.push(data[i]);
-
-				}else if(counts[data[i]] < 0.4*(data.length)){
-
-					data3.push(data[i]);
-
-				}else{
-
-					data4.push(data[i]);
-				}
-
-			}
-
-
-			if(data1.length !==0){
-				var polyline1 = L.polyline(data1, {color:'green',weight:1}).addTo(mymap);
-			}	
-			if(data2.length !==0){
-				var polyline2 = L.polyline(data2, {color:'red',weight:2}).addTo(mymap);
-			}	
-			if(data3.length !==0){
-				var polyline3 = L.polyline(data3, {color:'black',weight:3}).addTo(mymap);
-			}	
-			if(data4.length !==0){
-				var polyline4 = L.polyline(data4, {color:'brown',weight:4}).addTo(mymap);
-			}	
-				
-			
-
-
 			
 		},error:function(data){
 			console.log(data);
