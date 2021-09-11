@@ -12,7 +12,7 @@ $(document).ready(function(){
 
 	$.ajax({
 
-		url:"http://localhost/Github_Project/includes/admin_4_map.inc.php",
+		url:"http://localhost/Avody_Project/includes/admin_4_map.inc.php",
 		method: "GET",
 		dataType:"JSON",
 		success:function(data){
@@ -51,15 +51,17 @@ $(document).ready(function(){
 
 
 			var counts = {};
+			
 			for (var i = 0; i < data.length; i++) {
 				counts[data[i]] = 1 + (counts[data[i]] || 0);
+				
 			}
 			
 			
 			positions.forEach(element =>{
 
 				var weight = ((counts[element])/(data.length)*10)+1;
-				console.log(weight);
+				
 
 				var newdata = [data[0],element];
 

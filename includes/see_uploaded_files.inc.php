@@ -13,7 +13,7 @@
     <?php 
         session_start();
 
-    	$dir = "C:\wamp64\www\Github_Project\har_files\\".$_SESSION['useruid'];
+    	$dir = "C:\wamp64\www\Avody_Project\har_files\\".$_SESSION['useruid'];
 
             
         if ($handle = opendir($dir)) {
@@ -30,7 +30,7 @@
     
     ?>
 <p>
-<input type="submit" class="delete" name="submit" value="Delete"/>
+<input type="submit" class="delete" name="submit" value="Delete" onclick="return Warning_Sign()"/>
 <input  type="button" class="return" name="return" value="Return" onclick="window.location.href='../heatmap.php'">
 </p>
 </form/>
@@ -50,6 +50,14 @@
  
 
 <script type="text/javascript">
+
+    function Warning_Sign() {
+        if(confirm('By deleting your files you may end up having duplicate records.\nAre you sure you want to proceed?')==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     document.getElementById('check_all').onclick = function() {
     var checkboxes = document.querySelectorAll('input[type="checkbox"]');

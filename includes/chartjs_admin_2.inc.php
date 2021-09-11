@@ -2,6 +2,10 @@
 
 session_start();
 
+if(!isset($_SESSION['userid'])){
+        header('location:../sign_up.php?error=YOU');
+        exit();
+}
 
 require_once('db.inc.php');
 

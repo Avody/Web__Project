@@ -66,7 +66,8 @@
 
 			<div class="upload">
 
-				<p class="up">Upload your files</p> <br>
+				<p class="up">Upload your files<br><p style="font-size:14px;">Our site collects only non-sensitive data</p></p> <br>
+				
 				<form method="POST" action="includes/heatmap_upload_files.inc.php" enctype="multipart/form-data" class="upload_form">
 					<div class = "upload_down">
 						<input type="file" name="file"  >
@@ -113,11 +114,18 @@
 		mymap.setView([42, 21], 4);
 
 /*** Marker ***/
+		/***
+		var you_icon = L.icon({
+			iconUrl: 'img/ball.png',
+			iconSize:     [38, 40], // size of the icon
+			iconAnchor:   [20, 37], // point of the icon which will correspond to marker's location
+			popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+			});
 		
 		let marker = L.marker([37.946593, 23.664675], 
-		{ draggable: "true" });
+		{ draggable: "true",icon:you_icon });
 		marker.addTo(mymap);
-
+		***/
 /*** IPs in proper form ***/
 		var text = '<?= $text ?>';
 		var table =  text ;

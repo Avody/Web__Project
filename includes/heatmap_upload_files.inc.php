@@ -9,8 +9,8 @@ require_once('functions.inc.php');
 
 $id = $_SESSION['userid'];
 $uname = $_SESSION['useruid'];
-
-
+$val=''; //I use $val at the end of the code for inserting variables in the database
+$start = microtime(true);//for tracking the time of this script
 if(isset($_POST['submit'])) {
 
 
@@ -57,7 +57,7 @@ if(isset($_POST['submit'])) {
 		exit();
 	}
 
-		/****clean cookies from files***/
+	/****clean cookies from files***/
 
 	$file_to_clean = file_get_contents($fileTmpName);
 	$file_to_clean = json_decode($file_to_clean, true);
@@ -71,13 +71,13 @@ if(isset($_POST['submit'])) {
 		$num_cook = count($file_to_clean['log']['entries'][$j]['request']['cookies']);
 		for($i=0; $i<= $num_cook; $i++){
 			$file_to_clean['log']['entries'][$j]['request']['cookies'][$i]['value'] = "ERASED FROM IP FINDER";
-		
+
 		}
 	}
 
 	for($j=0; $j<$entries_to_clean; $j++){
 		for($p=0; $p< count($file_to_clean['log']['entries'][$j]['response']['headers']); $p++){
-	
+
 			if($file_to_clean['log']['entries'][$j]['response']['headers'][$p]['name']=='set-cookie'){
 				$file_to_clean['log']['entries'][$j]['response']['headers'][$p]['value'] = "ERASED FROM IP FINDER";
 				
@@ -89,7 +89,7 @@ if(isset($_POST['submit'])) {
 	}
 	for($j=0; $j<$entries_to_clean; $j++){
 		for($p=0; $p< count($file_to_clean['log']['entries'][$j]['request']['headers']); $p++){
-	
+
 			if($file_to_clean['log']['entries'][$j]['request']['headers'][$p]['name']=='set-cookie'){
 				$file_to_clean['log']['entries'][$j]['request']['headers'][$p]['value'] = "ERASED FROM IP FINDER";
 				
@@ -110,7 +110,7 @@ if(isset($_POST['submit'])) {
 	
 	
 	
-		/*****End of cleaning*****/
+	/*****End of cleaning*****/
 	
 	
 	
@@ -205,22 +205,28 @@ if(isset($_POST['submit'])) {
 		
 		/*** Content type ***/
 		
-		$content_type_before = $json['log']['entries'][$i]['response']['headers'];
 		
+		if($json['log']['entries'][$i]['response']['headers']){
 
-		for($p=0; $p< count($content_type_before); $p++){
+			$content_type_before = $json['log']['entries'][$i]['response']['headers'];
 
-			if($content_type_before[$p]['name']=='content-type'){
-				$content_type_after = $content_type_before[$p]['value'];
-				break;
-			}else if($content_type_before[$p]['name']=='Content-Type'){
-				$content_type_after = $content_type_before[$p]['value'];
-				break;
-			}else{
-				$content_type_after="-";
+			for($p=0; $p< count($content_type_before); $p++){
+
+				if($content_type_before[$p]['name']=='content-type'){
+					$content_type_after = $content_type_before[$p]['value'];
+					break;
+				}else if($content_type_before[$p]['name']=='Content-Type'){
+					$content_type_after = $content_type_before[$p]['value'];
+					break;
+				}else{
+					$content_type_after="-";
+				}
 			}
-		};
 
+		}else{
+			$content_type_after = "-";
+		}
+		
 
 		$load_time = $json['log']['entries'][$i]['time'];
 		$startedDateTime = $json['log']['entries'][$i]['startedDateTime'];
@@ -275,7 +281,7 @@ if(isset($_POST['submit'])) {
 			}
 		};
 		
-	
+
 
 		if($last_modified_after !== NULL){
 			$last_modified_day = substr($last_modified_after,5,2);
@@ -303,43 +309,43 @@ if(isset($_POST['submit'])) {
 		/****** Cache directives ******/
 
 
-	$cache_directive_before = $json['log']['entries'][$i]['response'];
+		$cache_directive_before = $json['log']['entries'][$i]['response'];
 
-	$public = 0;
-	$private = 0;
-	$no_cache = 0;
-	$no_store = 0;
+		$public = 0;
+		$private = 0;
+		$no_cache = 0;
+		$no_store = 0;
 
-	
-	foreach($cache_directive_before['headers'] as $key){
-		if($key['name'] == 'cache-control'){
-			$cache_directive = $key['value'];
-			if(strpos($cache_directive, "public") !== false){
-				
-				$public+=1;
+
+		foreach($cache_directive_before['headers'] as $key){
+			if($key['name'] == 'cache-control'){
+				$cache_directive = $key['value'];
+				if(strpos($cache_directive, "public") !== false){
+
+					$public+=1;
+				}
+				if(strpos($cache_directive, "private") !== false){
+
+					$private+=1;
+				}
+				if(strpos($cache_directive, "no-cache") !== false){
+
+					$no_cache+=1;
+				}
+				if(strpos($cache_directive, "no-store") !== false){
+
+					$no_store+=1;
+				}
+
 			}
-			if(strpos($cache_directive, "private") !== false){
-				
-				$private+=1;
-			}
-			if(strpos($cache_directive, "no-cache") !== false){
-				
-				$no_cache+=1;
-			}
-			if(strpos($cache_directive, "no-store") !== false){
-				
-				$no_store+=1;
-			}
-			
+
+
 		}
 
 
-	}
-	
+		$sql_cache_directives = "INSERT INTO cache_directives(usersId,public,private,no_cache,no_store,content_type) values (\"".$id."\",\"".$public."\",\"".$private."\",\"".$no_cache."\",\"".$no_store."\",\"".$content_type_after."\")";
 
-	$sql_cache_directives = "INSERT INTO cache_directives(usersId,public,private,no_cache,no_store,content_type) values (\"".$id."\",\"".$public."\",\"".$private."\",\"".$no_cache."\",\"".$no_store."\",\"".$content_type_after."\")";
-
-	mysqli_query($conn,$sql_cache_directives);
+		mysqli_query($conn,$sql_cache_directives);
 		
 
 		
@@ -351,7 +357,7 @@ if(isset($_POST['submit'])) {
 		
 		
 		if( preg_match($regex, $ipAddress) ){
-			$coordinates = curl_get_contents("https://api.ipdata.co/".$ipAddress."?api-key=efc602f8507785408c4ff17cf5380c0eaa106ffc99113a79fccfca91");
+			$coordinates = curl_get_contents("http://api.ipstack.com/".$ipAddress."?access_key=e02c71c25691f86c19ac24ccaee78e3b");
 			$coordinates = json_decode($coordinates,true);
 			$lat = $coordinates['latitude'];
 			$lng = $coordinates['longitude'];
@@ -359,7 +365,8 @@ if(isset($_POST['submit'])) {
 			
 		}else{
 			$ipAddress = substr($ipAddress, 1, -1);
-			$coordinates = curl_get_contents("https://api.ipdata.co/".$ipAddress."?api-key=efc602f8507785408c4ff17cf5380c0eaa106ffc99113a79fccfca91");
+			//$coordinates = curl_get_contents("http://api.ipstack.com/".$ipAddress."?access_key=e02c71c25691f86c19ac24ccaee78e3b");
+			$coordinates= curl_get_contents('https://api.ipdata.co/'.$ipAddress.'?api-key=e0565ee9be214f97f5e12d53de0b908676676b9d8e275f8a71b23f92');
 			$coordinates = json_decode($coordinates,true);
 			$lat = $coordinates['latitude'];
 			$lng = $coordinates['longitude'];
@@ -371,17 +378,37 @@ if(isset($_POST['submit'])) {
 		/*** Insert data in database ***/
 
 		
+
+		
+		$val .= ",($id,\"".$ipAddress."\",\"".$method."\",\"".$status."\",\"".$lat."\",\"".$lng."\",\"".$content_type_after."\",\"".$load_time."\",\"".$startedDateTime."\",\"".$day."\",\"".$last_modified."\",\"".$expires."\") ";	
+		
+
+		/*
+
 		
 		$sql = "INSERT INTO uploaded_files(usersId,ipAddress,method,status,lat,lng,content_type,load_time,startedDateTime,day,last_modified,expires) VALUES ( $id,\"".$ipAddress."\",\"".$method."\",\"".$status."\",\"".$lat."\",\"".$lng."\",\"".$content_type_after."\",\"".$load_time."\",\"".$startedDateTime."\",\"".$day."\",\"".$last_modified."\",\"".$expires."\");";
 		
 		
 		
 		mysqli_query($conn,$sql);
-		
+		*/
 	}
-	header('location:../heatmap.php');
-	
 
+	$insert = substr($val,1);
+	$bulk_XD = "INSERT INTO uploaded_files(usersId,ipAddress,method,status,lat,lng,content_type,load_time,startedDateTime,day,last_modified,expires) VALUES $insert";
+
+	if(mysqli_query($conn,$bulk_XD)){
+		//$time_elapsed_secs = microtime(true) - $start;
+		//echo($time_elapsed_secs);
+		//exit();
+		header('location:../heatmap.php?error=none');
+	}{
+		echo("WE HAVE AN ISSUE WITH THE DATABASE INSERTION");
+	}
+
+	
+	
+	
 	
 }else{
 	echo"something bad is happenning bro";

@@ -41,6 +41,8 @@
 
 
 	update_username($conn,$uname,$id);
+
+	rename("../har_files/$username", "../har_files/$uname");
 	
 
 	header("location:../edit_page.php?error=none ");

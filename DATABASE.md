@@ -1,6 +1,10 @@
 /******************** FOR DATABASE(phpmyadmin) ******************/
 
 DATABASE NAME: users_project
+SERVER NAME = "localhost";
+DB USERNAME = "root";
+DATABASE PASSWORD = "";
+
 
 (3) TABLES:
 1)users

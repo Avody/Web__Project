@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $.ajax({
-        url:"http://localhost/Github_Project/includes/chartjs_db_calls.inc.php",
+        url:"http://localhost/Avody_Project/includes/chartjs_db_calls.inc.php",
         method: "GET",
         success: function(data) {
             var json = JSON.parse(data);
@@ -50,7 +50,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $.ajax({
-        url:"http://localhost/Github_Project/includes/chartjs_db_calls_2.inc.php",
+        url:"http://localhost/Avody_Project/includes/chartjs_db_calls_2.inc.php",
         method: "GET",
         success: function(data) {
             var json = JSON.parse(data);
@@ -103,7 +103,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $.ajax({
-        url:"http://localhost/Github_Project/includes/chartjs_db_calls_3.inc.php",
+        url:"http://localhost/Avody_Project/includes/chartjs_db_calls_3.inc.php",
         method: "GET",
         success: function(data) {
             var json = JSON.parse(data);

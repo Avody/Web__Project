@@ -120,8 +120,31 @@
 		<?php 
 					  	if(isset($_GET['error'])){
 					  		if($_GET['error'] == "YOU_ARE_THE_ADMIN"){
-					  			echo "<p style='margin-left:47%;' class = 'error_message'>You are the admin dude xD !</p>";
+					  			echo "<div class ='error_message'><p>Great power comes with great responsibility</p></div>";
 					  		}
+					  		
+					  		if($_GET['error'] == "invalidUname"){
+					  			echo "<div class ='error_message'><p '>Invalid Username</p></div>";
+					  		}
+					  		if($_GET['error'] == "usernametaken"){
+					  			echo "<div class ='error_message'><p class ='error_message'>Username Taken</p></div>";
+					  		}
+					  		if($_GET['error'] == "wrongPassword"){
+					  			echo "<div class ='error_message'><p class ='error_message'>Wrong Password</p></div>";
+					  		}
+					  		if($_GET['error'] == "notAcceptedEmail"){
+					  			echo "<div class ='error_message'><p class ='error_message'>Provided Invalid Email</p></div>";
+					  		}
+					  		if($_GET['error'] == "invalidPassword"){
+					  			echo "<div class ='error_message'><p class ='error_message'>Provided Invalid Password</p></div>";
+					  		}
+					  		if($_GET['error'] == "passwordChanged"){
+					  			echo "<div class ='error_message'><p class ='error_message'>Password has changed successfully</p></div>";
+					  		}
+					  		if($_GET['error'] == "none"){
+					  			echo "<div class ='error_message'><p class ='error_message'>Everything in place!</p></div>";
+					  		}
+					  		
 					  		
 					  	}
 					   ?>

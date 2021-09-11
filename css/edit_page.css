@@ -213,3 +213,19 @@ button:hover{
 .tag{
 	margin-top: 40px ;
 }
+
+.error_message{
+	
+	justify-content: center;
+	text-align: center;
+	padding: 10px;
+	display:flex;
+
+}
+
+.error_message > p{
+	
+	padding: 10px;
+	font-weight: bold;
+	border: 2px solid black;
+}

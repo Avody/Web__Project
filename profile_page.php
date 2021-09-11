@@ -130,7 +130,7 @@
 			<div style="flex-grow:1; margin-top:5px;">
 			
 			<form method="post" action="includes/profile_page.inc.php">
-			<input  class="delete" type="submit" name="delete" value="Delete" >
+			<input  class="delete" type="submit" name="delete" value="Delete" onclick="return myFunction()" >
 			</form>	
 			
 			</div>
@@ -146,8 +146,13 @@
 	<!--<script type="text/javascript" src="js/chart.js"></script> -->
 	<script>
 		function myFunction() {
-  	confirm("Are you sure you want to proceed?");
-
+			
+  			if(confirm("Are you sure you want to delete your uploaded records? ")==true){
+  				return true
+  			}else{
+  				return false;
+  			}
+  			
 }
 	</script>
 

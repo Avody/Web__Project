@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $.ajax({
-        url:"http://localhost/Github_Project/includes/chartjs_admin_3_1.inc.php",
+        url:"http://localhost/Avody_Project/includes/chartjs_admin_3_1.inc.php",
         method: "GET",
         success: function(data) {
 

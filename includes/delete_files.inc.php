@@ -1,6 +1,10 @@
 <?php 
 session_start();
 
+if(!isset($_SESSION['userid'])){
+        header('location:../sign_up.php?error=YOU');
+        exit();
+}
 
 if(isset($_POST['files'])){
         $files = $_POST['files'];

@@ -54,7 +54,7 @@ th, td {
 
 
 .chart_div, .chart_div_2{
-	width: 22vw;
+	width: 30vw;
 	margin: 10px;
 
 }
@@ -93,4 +93,36 @@ th, td {
 	justify-content: flex-end;
 	margin-right: 10px;
 
+}
+
+@media only screen and (max-width: 700px){
+	
+	
+	.chart_div_3{
+		width: 90vw;
+		margin: auto;
+	}
+
+	.container{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.chart_div, .chart_div_2{
+	width: 50vw;
+	
+
+	}
+	.chart_div_2{
+		margin-top: 20px;
+	}
+}
+
+@media only screen and (min-width: 1100px){
+	.chart_div, .chart_div_2{
+	width: 25vw;
+	
+
+	}
 }
